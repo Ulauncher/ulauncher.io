@@ -1,7 +1,7 @@
 /*
 	Linear by TEMPLATED
-    templated.co @templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
 @charset 'UTF-8';
@@ -295,6 +295,9 @@
 		text-align: left;
 	}
 
+	.mobile-title {
+		display: none;
+	}
 
 	code {
 		padding: 2px 4px;
@@ -314,6 +317,7 @@
 		background-color: #f3f6fa;
 		border: solid 1px #dce6f0;
 		border-radius: 0.3rem;
+		overflow-x: auto;
 	}
 		pre > code {
 			padding: 0;
@@ -806,8 +810,8 @@
 	{
 		position: relative;
 		text-align: center;
-  		background-color: #159957;
-  		background-image: linear-gradient(120deg, #155799, #159957)
+		background-color: #159957;
+		background-image: linear-gradient(120deg, #155799, #159957)
 	}
 
 		#header:before
@@ -855,16 +859,19 @@
 			color: #FFF;
 		}
 
+		#logo .ulauncher-title {
+			font-style: normal;
+		}
+
 		#logo .ulauncher-logo svg {
 			display: inline-block;
 			width: 80px;
 			height: 80px;
 			background-color: white;
 			border-radius: 6px;
-
 			margin-bottom: -9px;
 			padding: 4px;
-}
+		}
 
 /*********************************************************************************/
 /* Nav                                                                           */
@@ -1071,7 +1078,7 @@
 
 
 /*********************************************************************************/
-/* Contribution                                                                         */
+/* Contribution                                                                  */
 /*********************************************************************************/
 
 	.contrib {

@@ -44,7 +44,7 @@
 	{
 		margin-top: 0 !important;
 	}
-	
+
 	.container
 	{
 		padding: 0em 1em;
@@ -60,7 +60,7 @@
 	{
 		margin-bottom: 1.6em;
 	}
-	
+
 		header h2
 		{
 			font-size: 2em;
@@ -96,7 +96,13 @@
 			font-weight: 300;
 			text-decoration: none;
 		}
-		
+		#titleBar .title i {
+			font-style: normal;
+		}
+		#titleBar .title .ulauncher-logo {
+			display: none;
+		}
+
 		#titleBar .tag
 		{
 			display: none;
@@ -146,12 +152,12 @@
 			padding: 0 1em 0 1em;
 			letter-spacing: 1px;
 		}
-		
+
 			#navPanel .link:first-child
 			{
 				border-top: 0;
 			}
-			
+
 			#navPanel .link.depth-0
 			{
 				color: #fff;
@@ -163,7 +169,7 @@
 			#navPanel .indent-4 { display: inline-block; width: 4em; }
 			#navPanel .indent-5 { display: inline-block; width: 5em; }
 			#navPanel .depth-0 { color: #fff; }
-			
+
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
@@ -180,11 +186,21 @@
 /* Logo                                                                          */
 /*********************************************************************************/
 
-	#logo
+	#logo .ulauncher-title
 	{
 		display: none;
 	}
-	
+
+		#logo .ulauncher-logo svg {
+			display: inline-block;
+			width: 70px;
+			height: 70px;
+			background-color: white;
+			border-radius: 6px;
+			margin-bottom: -9px;
+			padding: 4px;
+		}
+
 	#nav
 	{
 		display: none;
@@ -214,16 +230,16 @@
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/
-	
+
 	#footer
 	{
 		padding: 4em 0em 2em 0em;
 	}
-	
+
 /*********************************************************************************/
 /* Featured                                                                      */
 /*********************************************************************************/
-	
+
 	#featured
 	{
 		padding: 4em 0em 3em 0em;
@@ -238,16 +254,16 @@
 /*********************************************************************************/
 /* Welcome                                                                       */
 /*********************************************************************************/
-	
+
 	#welcome
 	{
 		padding: 4em 0em 3em 0em;
 	}
-	
+
 /*********************************************************************************/
 /* Tweet                                                                         */
 /*********************************************************************************/
-	
+
 	#tweet
 	{
 		padding: 3em 0em 1em 0em;
@@ -260,4 +276,30 @@
 		margin: 0;
 		padding: 1em 1em;
 		font-size: 1.2em;
-	}		
+	}
+
+
+/*********************************************************************************/
+/* Video container                                                               */
+/*********************************************************************************/
+
+	.video-container {
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 30px;
+		height: 0;
+		overflow: hidden;
+		margin-bottom: 2em;
+	}
+
+	.video-container iframe,
+	.video-container object,
+	.video-container embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		max-width: 560px;
+		max-height: 315px;
+	}
