@@ -55,3 +55,28 @@ skel.init({
 
 
 });
+
+jQuery(function($) {
+	$.get('https://api.github.com/repos/ulauncher/ulauncher/releases').then(function(data){
+		for (var i = 0; i < data.length; i++) {
+			var item = data[i];
+			if (!item.prerelease) {
+				$('#release-version').html('<a href="' + item.html_url + '">v' + item.name + '</a>');
+				$('#release-deb').html(getAssetLink(item.assets, '.deb'));
+				$('#release-fedora').html(getAssetLink(item.assets, 'fedora.rpm'));
+				$('#release-targz').html(getAssetLink(item.assets, '.tar.gz'));
+				return;
+			}
+		}
+	});
+
+	function getAssetLink(assets, type) {
+		for (var i = 0; i < assets.length; i++) {
+			if (assets[i].name.indexOf(type) > -1) {
+				return '<a href="' + assets[i].browser_download_url + '">' + assets[i].name + '</a>';
+			}
+		}
+
+		return '<i>[Error]</i>';
+	}
+}, jQuery);

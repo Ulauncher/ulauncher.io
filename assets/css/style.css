@@ -58,12 +58,17 @@
     a
     {
         text-decoration: none;
-        color: #80BA8E;
+        color: #3e6898;
     }
 
     a:hover
     {
         text-decoration: underline;
+    }
+
+    a:visited
+    {
+        color: #800099;
     }
 
     sub
@@ -314,8 +319,8 @@
         font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
         color: #567482;
         word-wrap: normal;
-        background-color: #f3f6fa;
-        border: solid 1px #dce6f0;
+        background-color: #f2f2f2;
+        border: solid 1px #d1d1d1;
         border-radius: 0.3rem;
         overflow-x: auto;
     }
@@ -1093,3 +1098,85 @@
     .contrib p {
         padding-top: 1em;
     }
+
+
+/*********************************************************************************/
+/* Sign-up form & social buttons                                                 */
+/*********************************************************************************/
+
+#social
+{
+    position: relative;
+    background: #fff;
+    padding: 2em 0 0 0;
+}
+#social hr {
+    margin: 1em 0 0 0;
+    padding: 1em 0 0 0;
+}
+
+.signup__email,
+.signup__button {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid;
+    display: block;
+    height: 3em;
+    line-height: 3em;
+    transition-duration: 0.15s, 0.15s;
+    transition-property: border-color, box-shadow;
+    transition-timing-function: ease-in-out, ease-in-out;
+    outline: none;
+}
+
+.signup__button {
+    cursor: pointer;
+    border-color: #1882c3;
+    background-color: #1b95e0;
+    color: #fff;
+    font-weight: bold;
+}
+
+.signup__button:hover,
+.signup__button:focus {
+    border-color: #09598b;
+    background-color: #0c7abf;
+    color: #fff;
+}
+
+.signup__email {
+    padding: 1em 0.5em;
+    border-color: rgb(204, 204, 204);
+    box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+    color: rgb(85, 85, 85);
+}
+
+.signup__email:focus {
+    border-color: #66afe9;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.social-buttons {
+    display: block;
+    text-align: center;
+    margin: 2em 0 0 0;
+}
+
+.social-buttons > li {
+    list-style: none;
+    display: inline-block;
+}
+
+/*********************************************************************************/
+/* Release links                                                                 */
+/*********************************************************************************/
+
+#release-links ul {
+    padding-left: 2em;
+}
+
+#release-links li {
+    list-style: initial;
+    list-style-type: circle;
+}

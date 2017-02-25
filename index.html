@@ -34,16 +34,24 @@ layout: default
 	</div>
 </div>
 
+<div id="social">
+	{% include index/social.html %}
+</div>
 
 <!-- Main -->
 <div id="main">
+
+
 	<div id="content" class="container">
 
-		<header id="Install">
-			<h2>Install Ulauncher</h2>
+		<header id="Download">
+			<h2>Download</h2>
 		</header>
+
+		{% include index/releases.html %}
+
+<!--
 		<section class="text">
-			<p class="fa fa-exclamation-circle"> Tested only on latest stable releases of Debian-based Linux distributions.</p>
 
 			Install from PPA:
 			<pre><code>sudo add-apt-repository ppa:agornostal/ulauncher
@@ -55,32 +63,8 @@ sudo apt-get install ulauncher</code></pre>
 			<br/>
 
 			See how to <a href="https://github.com/Ulauncher/Ulauncher/#from-sources">install from the source</a> on your Linux machine.
-
 		</section>
-
-		<hr />
-
-		<header id="Subscribe"><h2>Subscribe to New Releases</h2></header>
-
-		<!-- Begin MailChimp Signup Form -->
-		<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-		<style type="text/css">
-			#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
-			/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-			   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-		</style>
-		<div id="mc_embed_signup">
-		<form action="//ulauncher.us15.list-manage.com/subscribe/post?u=baa6d3572b48c6947a521d707&amp;id=4c8c7a5ea0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-		    <div id="mc_embed_signup_scroll">
-
-			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-		    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-		    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_baa6d3572b48c6947a521d707_4c8c7a5ea0" tabindex="-1" value=""></div>
-		    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-		    </div>
-		</form>
-		</div>
-		<!--End mc_embed_signup-->
+ -->
 
 		<hr />
 
@@ -93,11 +77,12 @@ sudo apt-get install ulauncher</code></pre>
 			<li><i class="fa-li fa fa-check-square-o"></i> File and directory browser</li>
 		</ul>
 
-		<h3><strong>v2 (Work in progress)</strong></h3>
+		<h3><strong>v2 (Work in progress). <i>Planned release: March 2017</i></strong></h3>
 		<ul class="fa-ul">
-			<li><i class="fa-li fa fa-check-square-o"></i> Redesigned settings</li>
-			<li><i class="fa-li fa fa-check-square-o"></i> Fixes and improvements</li>
-			<li><i class="fa-li fa fa-square-o"></i> Package with <a href="https://www.ubuntu.com/desktop/snappy">Snappy</a></li>
+			<li><i class="fa-li fa fa-check-square-o"></i> Redesigned and enhanced settings</li>
+			<li><i class="fa-li fa fa-check-square-o"></i> Dark and light theme</li>
+			<li><i class="fa-li fa fa-check-square-o"></i> Customizable shortcuts</li>
+			<li><i class="fa-li fa fa-square-o"></i> Package for Ubuntu, Fedora, OpenSUSE, Arch Linux </li>
 		</ul>
 
 		<h3><strong>v3</strong></h3>
@@ -117,23 +102,22 @@ sudo apt-get install ulauncher</code></pre>
 		<header id="Contribute"><h2>Contribute</h2></header>
 
 		<div class="row contrib">
-			<section class="3u">
-				<span class="pennant"><span class="fa fa-bug"></span></span>
-				<p> Help us find bugs by testing Ulauncher and <a href="https://github.com/Ulauncher/Ulauncher/wiki/How%20to%20Report%20A%20New%20Bug">reporting issues on Github</a>.</p>
+			<section class="4u">
+				<span class="pennant"><span class="fa fa-linux"></span></span>
+				<p>​
+					<a href="https://github.com/Ulauncher/Ulauncher/issues/74">
+						Help us with building AppImage package
+					</a>
+				</p>
 			</section>
-			<section class="3u">
+			<section class="4u">
 				<span class="pennant"><span class="fa fa-code"></span></span>
 				<p> <a href="https://github.com/Ulauncher/Ulauncher/wiki/Code-Contribution">Help with fixing bugs and implementing features</a>.
 				Python skills are required.</p>
 			</section>
-			<section class="3u">
-				<span class="pennant"><span class="fa fa-linux"></span></span>
-				<p>​ <a href="https://github.com/Ulauncher/Ulauncher/issues/27">Create script to make <code>.rpm</code> builds</a>
-				or/and <code>.deb</code> builds with all dependencies included.</p>
-			</section>
-			<section class="3u">
-				<span class="pennant"><span class="fa fa-rocket"></span></span>
-				<p>​ <a href="https://github.com/Ulauncher/Ulauncher/issues/26">Create script to automate Releases to Launchpad</a>.</p>
+			<section class="4u">
+				<span class="pennant"><span class="fa fa-bug"></span></span>
+				<p> Try and test Ulauncher on your machine. If you encounter any bugs, please <a href="https://github.com/Ulauncher/Ulauncher/wiki/How%20to%20Report%20A%20New%20Bug">report them</a>.</p>
 			</section>
 		</div>
 	</div>
