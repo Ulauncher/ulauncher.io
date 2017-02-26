@@ -1,0 +1,24 @@
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-69551512-1', 'auto');
+ga('send', 'pageview');
+
+$(function(){
+    $('#release-deb').click(function(){
+        sendReleaseDownloadEvent('Debian');
+    });
+    $('#release-fedora').click(function(){
+        sendReleaseDownloadEvent('Fedora');
+    });
+    $('#release-targz').click(function(){
+        sendReleaseDownloadEvent('tar.gz');
+    });
+
+    function sendReleaseDownloadEvent(type) {
+        ga('send', 'event', 'ReleaseDl', type);
+    }
+});
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
