@@ -1,27 +1,49 @@
 <section class="text" id="release-links">
-    Ulauncher <i id="release-version"></i> is available for:
 
-    <ul>
+    <ul class="channel-options">
         <li>
-            <b>Debian-based distros (Ubuntu, elementary OS, etc.)</b>: <span id="release-deb"><i>loading link...</i></span>
-            <br>
-            <code>sudo dpkg -i packagename.deb</code> or just double click <br>
-            Note: if <code>dpkg -i</code> exits with error about dependency problems,
-            run <code>sudo apt-get install -f</code>
+            <span id="stable-release">
+                <i class="option-check fa fa-dot-circle-o"></i> Stable release:
+            </span>
+            <span class="option-info"><i>loading...</i></span>
         </li>
         <li>
-            <b>Arch Linux</b>: Latest release is available on <a class="event-aur" href="https://aur.archlinux.org/packages/ulauncher/">AUR</a>
-            <br>
+            <span id="dev-release">
+                <i class="option-check fa fa-circle-o"></i> Dev release:
+            </span>
+            <span class="option-info"><i>loading...</i></span>
+        </li>
+    </ul>
+
+    <ul class="distro-options">
+        <li class="distro-icon distro-ubuntu">
+            <p>
+                <b class="distro-name">Ubuntu (Debian)</b> <span id="release-deb"><i>loading link...</i></span>
+            </p>
+
+            <code>sudo dpkg -i packagename.deb</code> or just double click <br>
+            If <code>dpkg -i</code> exits with a dependency problem error, run <code>sudo apt-get install -f</code>
+        </li>
+        <li class="distro-icon distro-archlinux">
+            <p>
+                <b class="distro-name">Arch Linux</b> Available in AUR:
+                    <a class="event-aur" id="release-aur" href="https://aur.archlinux.org/packages/ulauncher/">https://aur.archlinux.org/packages/ulauncher/</a>
+            </p>
+
             <code class="event-aur">git clone https://aur.archlinux.org/ulauncher.git && cd ulauncher && makepkg -is</code>
         </li>
-        <li>
-            <b>Fedora</b>: <span id="release-fedora"><i>loading link...</i></span>
-            <br>
+        <li class="distro-icon distro-fedora">
+            <p>
+                <b class="distro-name">Fedora</b> <span id="release-fedora"><i>loading link...</i></span>
+            </p>
+
             <code>sudo dnf install packagename.rpm</code>
         </li>
-        <li>
-            <b>OpenSUSE</b>: <span id="release-suse"><i>loading link...</i></span>
-            <br>
+        <li class="distro-icon distro-opensuse">
+            <p>
+                <b class="distro-name">OpenSUSE</b> <span id="release-suse"><i>loading link...</i></span>
+            </p>
+
             <code>sudo zypper in packagename.rpm</code> or double click
         </li>
     </ul>

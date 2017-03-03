@@ -1171,12 +1171,39 @@
 /*********************************************************************************/
 /* Release links                                                                 */
 /*********************************************************************************/
+.distro-icon:before {
+    background: url('/assets/images/distros.png') no-repeat top left;
+    width: 64px;
+    height: 64px;
+    background-size: 271px 64px;
+}
+.distro-archlinux:before { background-position: 0 0; }
+.distro-fedora:before { background-position: -69px 0; }
+.distro-opensuse:before { background-position: -138px 0; }
+.distro-ubuntu:before { background-position: -207px 0; }
 
-#release-links ul {
-    padding-left: 2em;
+.distro-name {
+    padding-right: 1em;
 }
 
-#release-links li {
-    list-style: initial;
-    list-style-type: circle;
+
+.distro-options li {
+    padding: 1em 0 1em 80px;
+    position: relative;
+}
+
+.distro-options li:before {
+    content: '';
+    display: block;
+    position: absolute;;
+    filter: opacity(50%) grayscale(100%);
+    width: 64px;
+    height: 64px;
+    left: 0;
+}
+.distro-options li:hover:before {
+    filter: none;
+}
+.channel-options li {
+    cursor: pointer;
 }
