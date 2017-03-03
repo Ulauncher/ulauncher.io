@@ -11,12 +11,15 @@ $(function(){
     $('#release-fedora').click(function(){
         sendReleaseDownloadEvent('Fedora');
     });
-    $('#release-targz').click(function(){
-        sendReleaseDownloadEvent('tar.gz');
+    $('#release-suse').click(function(){
+        sendReleaseDownloadEvent('OpenSUSE');
+    });
+    $('.event-aur').click(function(){
+        sendReleaseDownloadEvent('Arch Linux');
     });
 
-    function sendReleaseDownloadEvent(type) {
-        ga('send', 'event', 'ReleaseDl', type);
+    function sendReleaseDownloadEvent(label) {
+        ga('send', 'event', 'Distro', 'Download', label);
     }
 });
 </script>
