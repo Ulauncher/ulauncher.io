@@ -58,25 +58,55 @@ skel.init({
 
 jQuery(function($) {
 	$.get('https://api.github.com/repos/ulauncher/ulauncher/releases').then(function(data){
+		var info = getReleaseInfo(data);
+		if (!info) {
+			console.error('Releases not found');
+			return;
+		}
+
+		$('#release-version').html('<a href="' + info.html_url + '">v' + info.name + '</a>');
+		$('#release-deb').html('<a href="' + info.assets.deb.url + '">' + info.assets.deb.name + '</a>');
+		$('#release-fedora').html('<a href="' + info.assets.fedora.url + '">' + info.assets.fedora.name + '</a>');
+		$('#release-targz').html('<a href="' + info.assets.targz.url + '">' + info.assets.targz.name + '</a>');
+	});
+
+	function getReleaseInfo(data) {
 		for (var i = 0; i < data.length; i++) {
 			var item = data[i];
-			if (!item.prerelease) {
-				$('#release-version').html('<a href="' + item.html_url + '">v' + item.name + '</a>');
-				$('#release-deb').html(getAssetLink(item.assets, '.deb'));
-				$('#release-fedora').html(getAssetLink(item.assets, 'fedora.rpm'));
-				$('#release-targz').html(getAssetLink(item.assets, '.tar.gz'));
-				return;
+			var assets = getAssets(item);
+			if (!item.prerelease && assets) {
+				return {
+					name: item.name,
+					html_url: item.html_url,
+					assets: assets
+				};
 			}
 		}
-	});
+	}
+
+	function getAssets(release) {
+		var targz = getAssetLink(release.assets, '.tar.gz');
+		var fedora = getAssetLink(release.assets, 'fedora.rpm');
+		var deb = getAssetLink(release.assets, '.deb');
+
+		if (targz && fedora && deb) {
+			return {
+				targz: targz,
+				fedora: fedora,
+				deb: deb
+			};
+		}
+	}
 
 	function getAssetLink(assets, type) {
 		for (var i = 0; i < assets.length; i++) {
 			if (assets[i].name.indexOf(type) > -1) {
-				return '<a href="' + assets[i].browser_download_url + '">' + assets[i].name + '</a>';
+				return {
+					url: assets[i].browser_download_url,
+					name: assets[i].name
+				};
 			}
 		}
-
-		return '<i>[Error]</i>';
 	}
+
 }, jQuery);
