@@ -67,7 +67,7 @@ jQuery(function($) {
 		$('#release-version').html('<a href="' + info.html_url + '">v' + info.name + '</a>');
 		$('#release-deb').html('<a href="' + info.assets.deb.url + '">' + info.assets.deb.name + '</a>');
 		$('#release-fedora').html('<a href="' + info.assets.fedora.url + '">' + info.assets.fedora.name + '</a>');
-		$('#release-targz').html('<a href="' + info.assets.targz.url + '">' + info.assets.targz.name + '</a>');
+		$('#release-suse').html('<a href="' + info.assets.suse.url + '">' + info.assets.suse.name + '</a>');
 	});
 
 	function getReleaseInfo(data) {
@@ -85,13 +85,13 @@ jQuery(function($) {
 	}
 
 	function getAssets(release) {
-		var targz = getAssetLink(release.assets, '.tar.gz');
+		var suse = getAssetLink(release.assets, 'suse.rpm');
 		var fedora = getAssetLink(release.assets, 'fedora.rpm');
 		var deb = getAssetLink(release.assets, '.deb');
 
-		if (targz && fedora && deb) {
+		if (suse && fedora && deb) {
 			return {
-				targz: targz,
+				suse: suse,
 				fedora: fedora,
 				deb: deb
 			};
