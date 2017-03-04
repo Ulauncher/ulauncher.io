@@ -48,6 +48,10 @@ jQuery(function($) {
                 .attr('href', aurLink)
                 .text(aurLink);
 
+            var aurShell = selectStable ? 'git clone https://aur.archlinux.org/ulauncher.git && cd ulauncher && makepkg -is' :
+                'git clone https://aur.archlinux.org/ulauncher-git.git && cd ulauncher-git && makepkg -is';
+            $('#aur-shell').html(aurShell);
+
             renderReleaseLinks(selectStable ? stable : dev);
         }
 
