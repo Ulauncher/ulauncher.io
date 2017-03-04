@@ -1204,6 +1204,6 @@
 .distro-options li:hover:before {
     filter: none;
 }
-.channel-options li {
+.channel-options .channel-option {
     cursor: pointer;
 }
