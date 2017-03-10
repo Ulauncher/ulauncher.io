@@ -52,6 +52,10 @@ jQuery(function($) {
                 'git clone https://aur.archlinux.org/ulauncher-git.git && cd ulauncher-git && makepkg -is';
             $('#aur-shell').html(aurShell);
 
+            var ubuntuPpa = selectStable ? 'PPA will be available with the next release.' :
+                'Dev builds PPA: <code>ppa:agornostal/ulauncher-dev</code>';
+            $('#ubuntu-ppa').html(ubuntuPpa);
+
             renderReleaseLinks(selectStable ? stable : dev);
         }
 
