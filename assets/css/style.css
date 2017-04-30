@@ -1188,7 +1188,7 @@
 
 
 .distro-options li {
-    padding: 1em 0 1em 80px;
+    padding: 1em 0 2em 80px;
     position: relative;
 }
 
@@ -1203,6 +1203,10 @@
 }
 .distro-options li:hover:before {
     filter: none;
+}
+
+.channel-options li {
+    padding-top: 0.5em;
 }
 .channel-options .channel-option {
     cursor: pointer;
