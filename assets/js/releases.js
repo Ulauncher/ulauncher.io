@@ -52,8 +52,8 @@ jQuery(function($) {
                 'git clone https://aur.archlinux.org/ulauncher-git.git && cd ulauncher-git && makepkg -is';
             $('#aur-shell').html(aurShell);
 
-            var ubuntuPpa = selectStable ? 'PPA: <code>ppa:agornostal/ulauncher</code>' :
-                'PPA: <code>ppa:agornostal/ulauncher-dev</code>';
+            var ubuntuPpa = selectStable ? '<code>ppa:agornostal/ulauncher</code>' :
+                '<code>ppa:agornostal/ulauncher-dev</code>';
             $('#ubuntu-ppa').html(ubuntuPpa);
 
             renderReleaseLinks(selectStable ? stable : dev);
@@ -84,7 +84,7 @@ jQuery(function($) {
             var item = data[i];
             var assets = getAssets(item);
             var isStable = item.name.indexOf(' ') === -1;
-            if (!item.prerelease && assets && !item.draft && ((stable && isStable) || !stable)) {
+            if (!item.prerelease && assets && !item.draft && ((stable && isStable) || (!stable && !isStable))) {
                 return {
                     name: item.name,
                     tag_name: item.tag_name,
@@ -112,7 +112,7 @@ jQuery(function($) {
 
     function getAssetLink(assets, type) {
         for (var i = 0; i < assets.length; i++) {
-            if (assets[i].name.indexOf(type) > -1) {
+            if (assets[i].name.indexOf('ulauncher') > -1 && assets[i].name.indexOf(type) > -1) {
                 return {
                     url: assets[i].browser_download_url,
                     name: assets[i].name
