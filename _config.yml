@@ -1,2 +1,3 @@
-name: Ulauncher
+name: ulauncher.io
 description: Ulauncher App
+exclude: ['README.md', 'run-locally.sh', 'build.sh', 'LICENSE.txt', 'travis.yml']
