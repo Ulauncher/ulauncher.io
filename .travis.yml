@@ -1,0 +1,15 @@
+language: python
+script:
+- "./build.sh"
+branches:
+  only:
+  - master
+deploy:
+  provider: s3
+  access_key_id: AKIAJ6QX6CRNDOW4UNCA
+  secret_access_key:
+    secure: cu5rWqiQ5ffaDkNWNWyEA0qHRGMBb3V4C5m0rGu90q82LPHSVpPy35GbX4/HwKt5fcmZMR6yh4n8trT829yQc+Ur7oHQM0M23UVNzKAOxTslWF+zqFTdlAZsxo/WDdWE/VOyylxJkYovTZStC0zS9ZL1DJ//8+htHJyq5b0Bl/f/hH+LjdAqmoeDeaPy6LX86mqUmjGKH3ECDZ9DFrQPq4m/Su4f1+/pKc/PSHFhnZVK+2NJvFzp4t92jHEk83zJveQbDn6XVwZ7CyTzpMhUTVMJVDCi7OVi0Mu7uAXniBALBizKctHeH/9SoP9YAXZzAG0iG1rUctco3T5dzeE6tB/cO2khlEjDL5KLoI2ej8ko9VCrgasSpRUUBx1pGd7loQMM2/6GJgEMM2cIoxF50dyLDnDKm2gB2e6aUTllucHuAjgTS3c1clJeLlIHPtNkjq/fO8r0fJ4euLWd44n2F3TuAVpgkMcQHcy0+UdKq89xOyq7q/YgO3EZK8iLHTXRpfkPCjQXblRdL+kNOsnOCz5Lou682JUFrLfRaiib4sgzxMb6hY+crNnUkZE2l2I+rcFeSrN9N11SB8v5HKRYs/e3cNmGb1UFnKraWI2UokRqvQ4SHEPsP6+OzgnGbWLCgl+lRIOFWRNVQz+w6Aw8+eg7Fkponlu8Qtg5zSKmWWk=
+  bucket: ulauncher.io
+  local-dir: _site
+  on:
+    repo: Ulauncher/ulauncher.io
