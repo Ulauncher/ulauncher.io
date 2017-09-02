@@ -80,7 +80,12 @@
 
     #featured
     {
-        padding: 1em 0em;
+        padding: 2em 0em;
+    }
+
+    #featured img
+    {
+        margin-bottom: 1em;
     }
 
     #featured h3
