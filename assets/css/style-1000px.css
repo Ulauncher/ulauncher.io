@@ -17,11 +17,13 @@
         font-size: 11pt;
     }
 
+    .post-content h1,
     header
     {
         margin-bottom: 1.6em;
     }
 
+        .post-content h1,
         header h2
         {
             font-size: 2.8em;
