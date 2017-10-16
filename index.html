@@ -8,27 +8,31 @@ layout: default
 	{% include index/featured.html %}
 </div>
 
-<div id="social">
-	{% include index/social.html %}
-</div>
 
 <!-- Main -->
 <div id="main">
-
-
 	<div id="content" class="container">
 
-		<header id="Download">
-			<h2>Download</h2>
-		</header>
+		<section id="social">
+			{% include index/social.html %}
+		</section>
 
-		{% include index/releases.html %}
+		<section id="Download">
+			<header>
+				<h2>Download</h2>
+			</header>
 
-		<hr />
+			{% include index/releases.html %}
+		</section>
 
-		<header id="Roadmap"><h2>Roadmap</h2></header>
+		<section id="Roadmap">
+			<header><h2>Roadmap</h2></header>
+			{% include index/roadmap.html %}
+		</section>
 
-		{% include index/roadmap.html %}
-
+		<section id="Support">
+			<header><h2>Support the Project</h2></header>
+			{% include index/support.html %}
+		</section>
 	</div>
 </div>
