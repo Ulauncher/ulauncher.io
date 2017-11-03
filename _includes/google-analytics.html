@@ -19,7 +19,11 @@ $(function(){
     });
 
     function sendReleaseDownloadEvent(label) {
+        if (localStorage.getItem('downloaded-previously')) {
+            return
+        }
         ga('send', 'event', 'Distro', 'Download', label);
+        localStorage.setItem('downloaded-previously', '1')
     }
 });
 </script>
