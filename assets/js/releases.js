@@ -29,11 +29,11 @@ jQuery(function($) {
             setDefaultReleaseOption(selectStable ? 'stable' : 'dev');
 
             $('#stable-release .option-check')
-                .removeClass(selectStable ? 'fa-circle-o' : 'fa-dot-circle-o')
-                .addClass(selectStable ? 'fa-dot-circle-o' : 'fa-circle-o');
+                .removeClass(selectStable ? 'fa-circle' : 'fa-dot-circle')
+                .addClass(selectStable ? 'fa-dot-circle' : 'fa-circle');
             $('#dev-release .option-check')
-                .removeClass(!selectStable ? 'fa-circle-o' : 'fa-dot-circle-o')
-                .addClass(!selectStable ? 'fa-dot-circle-o' : 'fa-circle-o');
+                .removeClass(!selectStable ? 'fa-circle' : 'fa-dot-circle')
+                .addClass(!selectStable ? 'fa-dot-circle' : 'fa-circle');
 
             $('#stable-release + .option-info')
                 .html('<b>v' + stable.tag_name + '</b> from ' + new Date(stable.published_at).toLocaleDateString() +
@@ -73,7 +73,7 @@ jQuery(function($) {
      * @param  {Object} r Release object
      */
     function renderReleaseLinks (r) {
-        var dlIcon = '<i class="fa fa-download"></i> ';
+        var dlIcon = '<i class="fas fa-download"></i> ';
         $('#release-deb').html('<a href="' + r.assets.deb.url + '">' + dlIcon + r.assets.deb.name + '</a>');
         $('#release-fedora').html('<a href="' + r.assets.fedora.url + '">' + dlIcon + r.assets.fedora.name + '</a>');
         $('#release-suse').html('<a href="' + r.assets.suse.url + '">' + dlIcon + r.assets.suse.name + '</a>');
