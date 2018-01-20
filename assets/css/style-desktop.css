@@ -90,7 +90,8 @@
 
     #featured h3
     {
-        padding: 1.5em 0em;
+        padding: 1.5em 0em 1em 0;
+        margin-bottom: 0;
         font-size: 1.6em;
     }
 
