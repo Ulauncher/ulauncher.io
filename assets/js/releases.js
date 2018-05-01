@@ -77,6 +77,7 @@ jQuery(function($) {
         $('#release-deb').html('<a href="' + r.assets.deb.url + '">' + dlIcon + r.assets.deb.name + '</a>');
         $('#release-fedora').html('<a href="' + r.assets.fedora.url + '">' + dlIcon + r.assets.fedora.name + '</a>');
         $('#release-suse').html('<a href="' + r.assets.suse.url + '">' + dlIcon + r.assets.suse.name + '</a>');
+        $('#release-centos').html('<a href="' + r.assets.centos.url + '">' + dlIcon + r.assets.centos.name + '</a>');
     }
 
     function getReleaseInfo(data, stable) {
@@ -98,12 +99,14 @@ jQuery(function($) {
 
     function getAssets(release) {
         var suse = getAssetLink(release.assets, 'suse.rpm');
+        var centos = getAssetLink(release.assets, 'centos7.rpm');
         var fedora = getAssetLink(release.assets, 'fedora.rpm');
         var deb = getAssetLink(release.assets, '.deb');
 
-        if (suse && fedora && deb) {
+        if (suse && fedora && deb && centos) {
             return {
                 suse: suse,
+                centos: centos,
                 fedora: fedora,
                 deb: deb
             };

@@ -795,12 +795,13 @@
     background: url('/assets/images/distros.png') no-repeat top left;
     width: 64px;
     height: 64px;
-    background-size: 271px 64px;
+    background-size: 340px 64px;
 }
 .distro-archlinux:before { background-position: 0 0; }
 .distro-fedora:before { background-position: -69px 0; }
 .distro-opensuse:before { background-position: -138px 0; }
 .distro-ubuntu:before { background-position: -207px 0; }
+.distro-centos:before { background-position: -275px 0; }
 
 .distro-name {
     padding-right: 1em;
