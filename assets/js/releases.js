@@ -75,8 +75,18 @@ jQuery(function($) {
     function renderReleaseLinks (r) {
         var dlIcon = '<i class="fas fa-download"></i> ';
         $('#release-deb').html('<a href="' + r.assets.deb.url + '">' + dlIcon + r.assets.deb.name + '</a>');
-        $('#release-fedora').html('<a href="' + r.assets.fedora.url + '">' + dlIcon + r.assets.fedora.name + '</a>');
-        $('#release-suse').html('<a href="' + r.assets.suse.url + '">' + dlIcon + r.assets.suse.name + '</a>');
+        if (r.assets.fedora) {
+            $('#release-fedora').html('<a href="' + r.assets.fedora.url + '">' + dlIcon + r.assets.fedora.name + '</a>');
+        } else {
+            $('#release-fedora').html(`<a class="asset-link" href="${r.assets.fedora28.url}">${dlIcon}${r.assets.fedora28.name}</a>
+                <a class="asset-link" href="${r.assets.fedora29.url}">${dlIcon}${r.assets.fedora29.name}</a>`);
+        }
+        if (r.assets.suse) {
+            $('.distro-icon.distro-opensuse').show();
+            $('#release-suse').html('<a href="' + r.assets.suse.url + '">' + dlIcon + r.assets.suse.name + '</a>');
+        } else {
+            $('.distro-icon.distro-opensuse').hide();
+        }
         $('#release-centos').html('<a href="' + r.assets.centos.url + '">' + dlIcon + r.assets.centos.name + '</a>');
     }
 
@@ -101,15 +111,12 @@ jQuery(function($) {
         var suse = getAssetLink(release.assets, 'suse.rpm');
         var centos = getAssetLink(release.assets, 'centos7.rpm');
         var fedora = getAssetLink(release.assets, 'fedora.rpm');
+        var fedora28 = getAssetLink(release.assets, 'fedora28.rpm');
+        var fedora29 = getAssetLink(release.assets, 'fedora29.rpm');
         var deb = getAssetLink(release.assets, '.deb');
 
-        if (suse && fedora && deb && centos) {
-            return {
-                suse: suse,
-                centos: centos,
-                fedora: fedora,
-                deb: deb
-            };
+        if ((fedora || fedora28) && deb && centos) {
+            return { suse, centos, fedora, fedora28, fedora29, deb };
         }
     }
 

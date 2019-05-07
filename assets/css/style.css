@@ -839,6 +839,10 @@
 .channel-options .channel-option {
     cursor: pointer;
 }
+.asset-link {
+    display: inline-block;
+    margin-right: 10px;
+}
 
 
 /*********************************************************************************/
