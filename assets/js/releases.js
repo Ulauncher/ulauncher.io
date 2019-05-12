@@ -87,7 +87,12 @@ jQuery(function($) {
         } else {
             $('.distro-icon.distro-opensuse').hide();
         }
-        $('#release-centos').html('<a href="' + r.assets.centos.url + '">' + dlIcon + r.assets.centos.name + '</a>');
+        if (r.assets.centos) {
+            $('.distro-icon.distro-centos').show();
+            $('#release-centos').html('<a href="' + r.assets.centos.url + '">' + dlIcon + r.assets.centos.name + '</a>');
+        } else {
+            $('.distro-icon.distro-centos').hide();
+        }
     }
 
     function getReleaseInfo(data, stable) {
@@ -115,7 +120,7 @@ jQuery(function($) {
         var fedora29 = getAssetLink(release.assets, 'fedora29.rpm');
         var deb = getAssetLink(release.assets, '.deb');
 
-        if ((fedora || fedora28) && deb && centos) {
+        if ((fedora || fedora28) && deb) {
             return { suse, centos, fedora, fedora28, fedora29, deb };
         }
     }
