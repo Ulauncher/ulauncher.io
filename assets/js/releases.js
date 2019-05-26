@@ -36,10 +36,10 @@ jQuery(function($) {
                 .addClass(!selectStable ? 'fa-dot-circle' : 'fa-circle');
 
             $('#stable-release + .option-info')
-                .html('<b>v' + stable.tag_name + '</b> from ' + new Date(stable.published_at).toLocaleDateString() +
+                .html('<b>v' + stable.name + '</b> from ' + new Date(stable.published_at).toLocaleDateString() +
                     ' <a href="' + stable.html_url + '">Release notes</a>.');
             $('#dev-release + .option-info')
-                .html('<b>v' + dev.tag_name + '</b> from ' + new Date(dev.published_at).toLocaleDateString() +
+                .html('<b>v' + dev.name + '</b> from ' + new Date(dev.published_at).toLocaleDateString() +
                     ' <a href="' + dev.html_url + '">Release notes</a>.');
 
             var aurLink = selectStable ? 'https://aur.archlinux.org/packages/ulauncher/' :
