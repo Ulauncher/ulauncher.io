@@ -75,9 +75,9 @@ jQuery(function($) {
     function renderReleaseLinks (r) {
         var dlIcon = '<i class="fas fa-download"></i> ';
         $('#release-deb').html('<a href="' + r.assets.deb.url + '">' + dlIcon + r.assets.deb.name + '</a>');
-        if (r.assets.fedora32) {
+        if (r.assets.fedora33) {
             $('#release-fedora').html(`<a class="asset-link" href="${r.assets.fedora.url}">${dlIcon}${r.assets.fedora.name}</a>
-            <a class="asset-link" href="${r.assets.fedora32.url}">${dlIcon}${r.assets.fedora32.name}</a>`);
+            <a class="asset-link" href="${r.assets.fedora33.url}">${dlIcon}${r.assets.fedora33.name}</a>`);
         } else {
             $('#release-fedora').html('<a href="' + r.assets.fedora.url + '">' + dlIcon + r.assets.fedora.name + '</a>');
         }
@@ -116,11 +116,11 @@ jQuery(function($) {
         var suse = getAssetLink(release.assets, 'suse.rpm');
         var centos = getAssetLink(release.assets, 'centos7.rpm');
         var fedora = getAssetLink(release.assets, 'fedora.rpm');
-        var fedora32 = getAssetLink(release.assets, 'fedora32.rpm');
+        var fedora33 = getAssetLink(release.assets, 'fedora33.rpm');
         var deb = getAssetLink(release.assets, '.deb');
 
-        if ((fedora || fedora32) && deb) {
-            return { suse, centos, fedora, fedora32, deb };
+        if ((fedora || fedora33) && deb) {
+            return { suse, centos, fedora, fedora33, deb };
         }
     }
 
