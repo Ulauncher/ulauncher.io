@@ -8,9 +8,6 @@ $(function(){
     $('#release-deb').click(function(){
         sendReleaseDownloadEvent('Debian');
     });
-    $('#release-fedora').click(function(){
-        sendReleaseDownloadEvent('Fedora');
-    });
     $('#release-suse').click(function(){
         sendReleaseDownloadEvent('OpenSUSE');
     });
@@ -19,6 +16,9 @@ $(function(){
     });
     $('.event-aur').click(function(){
         sendReleaseDownloadEvent('Arch Linux');
+    });
+    $('.event-fedora').click(function(){
+        sendReleaseDownloadEvent('Fedora');
     });
 
     function sendReleaseDownloadEvent(label) {
