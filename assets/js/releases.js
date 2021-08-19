@@ -48,6 +48,14 @@ jQuery(function($) {
                 .attr('href', aurLink)
                 .text(aurLink);
 
+            var fedoraLink = selectStable ? 'https://src.fedoraproject.org/rpms/ulauncher/' :
+                'https://copr.fedorainfracloud.org/coprs/troycurtisjr/ulauncher/';
+            $('#release-fedora')
+                .attr('href', fedoraLink)
+                .text(fedoraLink);
+
+            $('#fedora-dev-repo').toggle(!selectStable);
+
             var aurShell = selectStable ? 'git clone https://aur.archlinux.org/ulauncher.git && cd ulauncher && makepkg -is' :
                 'git clone https://aur.archlinux.org/ulauncher-git.git && cd ulauncher-git && makepkg -is';
             $('#aur-shell').html(aurShell);
@@ -75,12 +83,6 @@ jQuery(function($) {
     function renderReleaseLinks (r) {
         var dlIcon = '<i class="fas fa-download"></i> ';
         $('#release-deb').html('<a href="' + r.assets.deb.url + '">' + dlIcon + r.assets.deb.name + '</a>');
-        if (r.assets.fedora33) {
-            $('#release-fedora').html(`<a class="asset-link" href="${r.assets.fedora.url}">${dlIcon}${r.assets.fedora.name}</a>
-            <a class="asset-link" href="${r.assets.fedora33.url}">${dlIcon}${r.assets.fedora33.name}</a>`);
-        } else {
-            $('#release-fedora').html('<a href="' + r.assets.fedora.url + '">' + dlIcon + r.assets.fedora.name + '</a>');
-        }
         if (r.assets.suse) {
             $('.distro-icon.distro-opensuse').show();
             $('#release-suse').html('<a href="' + r.assets.suse.url + '">' + dlIcon + r.assets.suse.name + '</a>');
@@ -113,14 +115,10 @@ jQuery(function($) {
     }
 
     function getAssets(release) {
-        var suse = getAssetLink(release.assets, 'suse.rpm');
-        var centos = getAssetLink(release.assets, 'centos7.rpm');
-        var fedora = getAssetLink(release.assets, 'fedora.rpm');
-        var fedora33 = getAssetLink(release.assets, 'fedora33.rpm');
         var deb = getAssetLink(release.assets, '.deb');
 
-        if ((fedora || fedora33) && deb) {
-            return { suse, centos, fedora, fedora33, deb };
+        if (deb) {
+            return { deb };
         }
     }
 

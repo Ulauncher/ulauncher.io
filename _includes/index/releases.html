@@ -34,10 +34,14 @@
         </li>
         <li class="distro-icon distro-fedora">
             <p>
-                <b class="distro-name">Fedora</b> <span id="release-fedora"><i>loading link...</i></span>
+                <b class="distro-name">Fedora</b> Available for all current Fedora Linux Releases: <br />
+                <a class="event-fedora" id="release-fedora" href="#">#</a>
             </p>
 
-            <code>sudo dnf install packagename.rpm</code>
+            <div style="display: none" id="fedora-dev-repo">
+                <code>sudo dnf copr enable troycurtisjr/ulauncher</code>
+            </div>
+            <code class="event-fedora">sudo dnf install ulauncher</code>
         </li>
         <li class="distro-icon distro-opensuse">
             <p>
