@@ -101,7 +101,7 @@ jQuery(function($) {
         for (var i = 0; i < data.length; i++) {
             var item = data[i];
             var assets = getAssets(item);
-            var isStable = /^\d+\.\d+\.\d+$/.test(item.tag_name) && !item.prerelease;
+            var isStable = /^\d+\.\d+\.\d+$/.test(item.name || item.tag_name) && !item.prerelease;
             if (assets && !item.draft && stable === isStable) {
                 return {
                     name: item.name,
