@@ -101,8 +101,8 @@ jQuery(function($) {
         for (var i = 0; i < data.length; i++) {
             var item = data[i];
             var assets = getAssets(item);
-            var isStable = item.name.indexOf('beta') === -1 && item.name.indexOf(' ') === -1;
-            if (!item.prerelease && assets && !item.draft && ((stable && isStable) || (!stable && !isStable))) {
+            var isStable = /^\d+\.\d+\.\d+$/.test(item.name || item.tag_name) && !item.prerelease;
+            if (assets && !item.draft && stable === isStable) {
                 return {
                     name: item.name,
                     tag_name: item.tag_name,
