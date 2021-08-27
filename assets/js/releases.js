@@ -60,8 +60,8 @@ jQuery(function($) {
                 'git clone https://aur.archlinux.org/ulauncher-git.git && cd ulauncher-git && makepkg -is';
             $('#aur-shell').html(aurShell);
 
-            var ubuntuPpa = selectStable ? '<code>ppa:agornostal/ulauncher</code>' :
-                '<code>ppa:agornostal/ulauncher-dev</code>';
+            var ubuntuPpa = selectStable ? '<code>sudo add-apt-repository ppa:agornostal/ulauncher && sudo apt update && sudo apt install ulauncher</code>' :
+                '<code>sudo add-apt-repository ppa:agornostal/ulauncher-dev && sudo apt update && sudo apt install ulauncher</code>';
             $('#ubuntu-ppa').html(ubuntuPpa);
 
             renderReleaseLinks(selectStable ? stable : dev);
