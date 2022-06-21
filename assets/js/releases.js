@@ -65,6 +65,16 @@ jQuery(function($) {
             var launchpadPackage = selectStable ? 'ulauncher' : 'ulauncher-dev';
             $('#ubuntu-ppa').html('<code>sudo add-apt-repository ppa:agornostal/' + launchpadPackage + ' && sudo apt update && sudo apt install ulauncher</code>');
 
+            var debianInstructions = 'sudo apt update && sudo apt install -y gnupg\n' +
+                'gpg --keyserver keyserver.ubuntu.com --recv 0xfaf1020699503176\n' +
+                'gpg --export 0xfaf1020699503176 | sudo tee /usr/share/keyrings/ulauncher-archive-keyring.gpg\n' +
+                'sudo echo "deb [signed-by=/usr/share/keyrings/ulauncher-archive-keyring.gpg] \\\n' +
+                '          http://ppa.launchpad.net/agornostal/' + launchpadPackage + '/ubuntu focal main" \\\n' +
+                '          > /etc/apt/sources.list.d/' + launchpadPackage + '-focal.list\n' +
+                'sudo apt update && sudo apt install ulauncher';
+
+            $('#debian-ppa').html("<pre>" + debianInstructions + "</pre>");
+
             renderReleaseLinks(selectStable ? stable : dev);
         }
 
