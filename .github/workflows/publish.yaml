@@ -1,0 +1,39 @@
+name: Publish to Cloudfront
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Install dependencies
+        run: gem install json github-pages jekyll-github-metadata minitest
+      - name: Build
+        run: jekyll build
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - name: Install AWS CLI
+        run: |
+          python -m pip install --upgrade pip
+          pip install awscli
+      - run: aws s3 sync _site s3://ulauncher.io --region us-east-1 --cache-control max-age=0 --acl public-read
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Invalidate Cloudfront
+        run: aws cloudfront create-invalidation --distribution-id EUJKQR38BVSMX --paths "/*"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
