@@ -67,10 +67,10 @@ jQuery(function($) {
 
             var debianInstructions = 'sudo apt update && sudo apt install -y gnupg\n' +
                 'gpg --keyserver keyserver.ubuntu.com --recv 0xfaf1020699503176\n' +
-                'gpg --export 0xfaf1020699503176 | sudo tee /usr/share/keyrings/ulauncher-archive-keyring.gpg\n' +
-                'sudo echo "deb [signed-by=/usr/share/keyrings/ulauncher-archive-keyring.gpg] \\\n' +
-                '          http://ppa.launchpad.net/agornostal/' + launchpadPackage + '/ubuntu focal main" \\\n' +
-                '          > /etc/apt/sources.list.d/' + launchpadPackage + '-focal.list\n' +
+                'gpg --export 0xfaf1020699503176 | sudo tee /usr/share/keyrings/ulauncher-archive-keyring.gpg > /dev/null\n' +
+                'echo "deb [signed-by=/usr/share/keyrings/ulauncher-archive-keyring.gpg] \\\n' +
+                '          http://ppa.launchpad.net/agornostal/' + launchpadPackage + '/ubuntu jammy main" \\\n' +
+                '          | sudo tee /etc/apt/sources.list.d/' + launchpadPackage + '-jammy.list\n' +
                 'sudo apt update && sudo apt install ulauncher';
 
             $('#debian-ppa').html("<pre>" + debianInstructions + "</pre>");
