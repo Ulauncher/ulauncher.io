@@ -63,7 +63,7 @@ jQuery(function($) {
             $('#aur-shell').html(aurShell);
 
             var launchpadPackage = selectStable ? 'ulauncher' : 'ulauncher-dev';
-            $('#ubuntu-ppa').html('<code>sudo add-apt-repository ppa:agornostal/' + launchpadPackage + ' && sudo apt update && sudo apt install ulauncher</code>');
+            $('#ubuntu-ppa').html('<code>sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/' + launchpadPackage + ' -y && sudo apt update && sudo apt install ulauncher</code>');
 
             var debianInstructions = 'sudo apt update && sudo apt install -y gnupg\n' +
                 'gpg --keyserver keyserver.ubuntu.com --recv 0xfaf1020699503176\n' +
