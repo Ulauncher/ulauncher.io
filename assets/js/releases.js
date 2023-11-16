@@ -24,6 +24,12 @@ jQuery(function($) {
         }
         const stableVer = stable.name || stable.tag_name;
         const devVer = dev.name || dev.tag_name;
+        if (stableVer.charAt(0) !== "v"){
+            stableVer = `v${stableVer}`
+        }
+        if (devVer.charAt(0) !== "v"){
+            devVer = `v${devVer}`
+        }
 
         var stableSelected = getDefaultReleaseOption() == 'stable';
 
@@ -38,10 +44,10 @@ jQuery(function($) {
                 .addClass(!selectStable ? 'fa-dot-circle' : 'fa-circle');
 
             $('#stable-release + .option-info')
-                .html('<b>v' + stableVer + '</b> from ' + new Date(stable.published_at).toLocaleDateString() +
+                .html('<b>' + stableVer + '</b> from ' + new Date(stable.published_at).toLocaleDateString() +
                     ' <a href="' + stable.html_url + '">Release notes</a>.');
             $('#dev-release + .option-info')
-                .html('<b>v' + devVer + '</b> from ' + new Date(dev.published_at).toLocaleDateString() +
+                .html('<b>' + devVer + '</b> from ' + new Date(dev.published_at).toLocaleDateString() +
                     ' <a href="' + dev.html_url + '">Release notes</a>.');
 
             var aurLink = selectStable ? 'https://aur.archlinux.org/packages/ulauncher/' :
