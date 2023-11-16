@@ -22,8 +22,8 @@ jQuery(function($) {
             console.error('Releases not found');
             return;
         }
-        const stableVer = stable.name || stable.tag_name;
-        const devVer = dev.name || dev.tag_name;
+        let stableVer = stable.name || stable.tag_name;
+        let devVer = dev.name || dev.tag_name;
         if (stableVer.charAt(0) !== "v"){
             stableVer = `v${stableVer}`
         }
