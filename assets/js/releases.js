@@ -94,7 +94,7 @@ jQuery(function($) {
         });
 
         // hide dev release if it's the same as stable
-        const verRegex = /^(\d+)\.(\d+)\.(\d+)/
+        const verRegex = /^v?(\d+)\.(\d+)\.(\d+)/
         const stableMatch = stableVer.match(verRegex)
         const devMatch = devVer.match(verRegex)
         const stMaj = parseInt(stableMatch[1], 10)
