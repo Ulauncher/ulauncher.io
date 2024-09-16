@@ -50,8 +50,7 @@ jQuery(function($) {
                 .attr('href', aurLink)
                 .text(aurLink);
 
-            var fedoraLink = selectStable ? 'https://src.fedoraproject.org/rpms/ulauncher/' :
-                'https://copr.fedorainfracloud.org/coprs/troycurtisjr/ulauncher/';
+            var fedoraLink = 'https://src.fedoraproject.org/rpms/ulauncher/';
             $('#release-fedora')
                 .attr('href', fedoraLink)
                 .text(fedoraLink);
