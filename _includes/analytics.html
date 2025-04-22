@@ -1,0 +1,38 @@
+<!-- Start Analytics -->
+<script>
+  $(function () {
+    // selector‑to‑distro map
+    const targets = {
+      "#release-deb": "Debian",
+      "#release-suse": "OpenSUSE",
+      "#release-centos": "CentOS",
+      ".event-aur": "Arch Linux",
+      ".event-fedora": "Fedora",
+    };
+
+    // Attach the click handlers
+    Object.entries(targets).forEach(([selector, label]) => {
+      $(selector).on("click", () => trackDownload(label));
+    });
+
+    function trackDownload(label) {
+      const storageKey = "downloaded";
+
+      if (localStorage.getItem(storageKey)) return; // already tracked
+
+      // Call Umami if it’s available
+      if (window.umami && typeof umami.track === "function") {
+        // event name + optional data object
+        umami.track("Distro download", { distro: label });
+      }
+
+      localStorage.setItem(storageKey, "1");
+    }
+  });
+</script>
+<script
+  defer
+  src="https://cloud.umami.is/script.js"
+  data-website-id="5df87492-49bc-45fe-ab12-80aa94033bc3"
+></script>
+<!-- End Analytics -->
