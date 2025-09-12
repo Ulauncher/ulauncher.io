@@ -1,3 +1,0 @@
-name: ulauncher.io
-description: Ulauncher App
-exclude: ['README.md', 'Dockerfile', 'jekyll', 'run-locally.sh', 'build.sh', 'LICENSE.txt', 'travis.yml']
