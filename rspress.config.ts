@@ -10,12 +10,18 @@ export default defineConfig({
   globalStyles: path.join(__dirname, 'styles/global.css'),
   themeConfig: {
     footer: {
-      message: '© 2015-2025 Ulauncher Team',
+      message: '© 2015-2025 Ulauncher Team <a href="https://github.com/Ulauncher/ulauncher.io">&lt;/&gt;</a>',
     },
     nav: [
       { text: 'Download', link: '/download' },
       { text: 'Extensions', link: 'https://ext.ulauncher.io' },
-      { text: 'API Docs', link: '/api' },
+      {
+        text: 'Docs',
+        items: [
+          { text: 'Video tutorials', link: '/video-tutorials' },
+          { text: 'Extension API', link: '/extension-api' },
+        ]
+      },
       { text: 'Bugs & Discussions', link: 'https://github.com/Ulauncher/Ulauncher/issues' },
       { text: 'Color Themes', link: 'https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce' },
     ],
