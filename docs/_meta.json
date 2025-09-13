@@ -1,0 +1,35 @@
+[
+  {
+    "text": "Download",
+    "link": "/download"
+  },
+  {
+    "text": "Extensions",
+    "link": "https://ext.ulauncher.io"
+  },
+  {
+    "text": "Docs",
+    "items": [
+      {
+        "text": "Video tutorials",
+        "link": "/video-tutorials"
+      },
+      {
+        "text": "Creating extensions",
+        "link": "/extensions"
+      },
+      {
+        "text": "Creating color themes",
+        "link": "/color-themes"
+      }
+    ]
+  },
+  {
+    "text": "Bugs & Discussions",
+    "link": "https://github.com/Ulauncher/Ulauncher/issues"
+  },
+  {
+    "text": "Color Themes",
+    "link": "https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce"
+  }
+]
