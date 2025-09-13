@@ -2,3 +2,148 @@
   /* Otherwise some element casts a blueish shadow on the hero image when switching to dark theme */
   display: none !important;
 }
+
+/* Release Info Component Styles */
+.release-info {
+  background: linear-gradient(135deg, var(--rp-c-bg-soft) 0%, var(--rp-c-bg) 100%);
+  border: 1px solid var(--rp-c-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.release-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rp-c-brand), var(--rp-c-brand-light));
+}
+
+.release-info.stable::before {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.release-info.dev::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.release-info.loading {
+  color: var(--rp-c-text-2);
+  font-style: italic;
+  background: var(--rp-c-bg-soft);
+}
+
+.release-info.error {
+  background: linear-gradient(135deg, var(--rp-c-danger-bg) 0%, rgba(220, 38, 38, 0.1) 100%);
+  border-color: var(--rp-c-danger);
+  color: var(--rp-c-danger-text);
+}
+
+.release-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.release-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.release-version {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.release-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.release-badge.stable {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.release-badge.dev {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.version-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rp-c-text-1);
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  flex-shrink: 0;
+}
+
+.release-date {
+  color: var(--rp-c-text-2);
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+@media (max-width: 640px) {
+  .release-content {
+    justify-content: space-between;
+  }
+
+  .release-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .release-actions {
+    width: 100%;
+  }
+
+  .action-link {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .release-date {
+    margin-left: 0;
+    order: -1;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+.release-details {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.release-details a {
+  color: var(--rp-c-brand);
+  text-decoration: none;
+}
+
+.release-details a:hover {
+  text-decoration: underline;
+}

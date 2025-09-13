@@ -1,4 +1,5 @@
 import { Toc } from "@theme";
+import { ReleaseInfo } from "./components";
 
 # Development Downloads
 
@@ -10,7 +11,7 @@ Choose the installation method for your Linux distribution to get the latest dev
 
 <Toc />
 
-[← Back to Stable Downloads](/download)
+<ReleaseInfo type="dev" />
 
 ## Ubuntu / Debian
 
@@ -18,7 +19,7 @@ Choose the installation method for your Linux distribution to get the latest dev
 
 ```bash
 sudo add-apt-repository universe
-sudo add-apt-repository ppa:agornostal/ulauncher
+sudo add-apt-repository ppa:agornostal/ulauncher-dev
 sudo apt update
 sudo apt install ulauncher
 ```
@@ -30,13 +31,13 @@ sudo apt install ulauncher
 gpg --keyserver keyserver.ubuntu.com --recv 0xfaf1020699503176
 gpg --export 0xfaf1020699503176 | sudo tee /usr/share/keyrings/ulauncher-archive-keyring.gpg > /dev/null
 echo "deb [signed-by=/usr/share/keyrings/ulauncher-archive-keyring.gpg] \
-          http://ppa.launchpad.net/agornostal/ulauncher/ubuntu jammy main" \
-          | sudo tee /etc/apt/sources.list.d/ulauncher-jammy.list
+          http://ppa.launchpad.net/agornostal/ulauncher-dev/ubuntu jammy main" \
+          | sudo tee /etc/apt/sources.list.d/ulauncher-dev-jammy.list
 sudo apt update
 sudo apt install ulauncher
 ```
 
-**Alternatively**, download the development `.deb` file and install:
+**Alternatively**, find the `.deb` download link in the release notes above, and install:
 
 ```bash
 sudo apt install ./ulauncher_x.y.z_all.deb
@@ -64,4 +65,4 @@ Development packages are not currently available for Fedora. Please use the [sta
 
 ---
 
-[← Back to Stable Downloads](/download)
+*[← Back to Stable Downloads](/download)*

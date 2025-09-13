@@ -1,5 +1,9 @@
 # Ulauncher.io website
 
+## General guidelines
+
+1. Try avoid adding custom components or plugins unless necessary.
+
 
 ## Steps for making animated WebP from screenshots
 
