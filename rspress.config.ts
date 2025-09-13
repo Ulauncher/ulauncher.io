@@ -1,4 +1,5 @@
 import { defineConfig } from 'rspress/config';
+import path from 'path';
 
 export default defineConfig({
   root: 'docs',
@@ -6,6 +7,7 @@ export default defineConfig({
   description: 'Application launcher for Linux 🐧',
   icon: '/favicon.ico',
   logo: '/images/ulauncher-logo.png',
+  globalStyles: path.join(__dirname, 'styles/global.css'),
   themeConfig: {
     nav: [
       { text: 'Extensions', link: 'https://ext.ulauncher.io' },

@@ -1,0 +1,4 @@
+.mask_bbaa6 {
+  /* Otherwise some element casts a blueish shadow on the hero image when switching to dark theme */
+  display: none !important;
+}
