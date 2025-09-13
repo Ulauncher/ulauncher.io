@@ -19,7 +19,8 @@ export default defineConfig({
         text: 'Docs',
         items: [
           { text: 'Video tutorials', link: '/video-tutorials' },
-          { text: 'Extension API', link: '/extension-api' },
+          { text: 'Creating extensions', link: '/extensions' },
+          { text: 'Creating a color theme', link: '/color-themes' },
         ]
       },
       { text: 'Bugs & Discussions', link: 'https://github.com/Ulauncher/Ulauncher/issues' },

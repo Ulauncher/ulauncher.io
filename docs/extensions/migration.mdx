@@ -1,0 +1,136 @@
+---
+title: Extension Migration Guide
+description: How to migrate your extension between different API versions
+---
+
+# Extension Migration Guide
+
+## Migrate from API v2 to v3
+
+API version 3 was introduced with Ulauncher v6 and includes significant improvements to the extension API, including simplified event handling and better type hints.
+
+### Key Changes in API v3
+
+- **Simplified event handling**: Use `on_input()` and `on_item_enter()` methods instead of manual event binding
+- **Improved manifest format**: `api_version` instead of `required_api_version`
+- **Better type hints**: Full TypeScript-style type annotations for Python
+- **Triggers system**: New trigger-based activation system
+
+### Required Actions
+
+1. **Update manifest.json**:
+   - Change `required_api_version` to `api_version`
+   - Set the value to `"3"`
+   - Update to use the new `triggers` format instead of `preferences` for keywords
+
+   **Before (API v2)**:
+   ```json
+   {
+     "required_api_version": "2",
+     "preferences": [
+       {
+         "id": "kw",
+         "type": "keyword",
+         "name": "My Extension",
+         "default_value": "myext"
+       }
+     ]
+   }
+   ```
+
+   **After (API v3)**:
+   ```json
+   {
+     "api_version": "3",
+     "triggers": {
+       "myext": {
+         "name": "My Extension",
+         "description": "Description of my extension",
+         "keyword": "myext"
+       }
+     }
+   }
+   ```
+
+2. **Update your extension class**:
+   - Replace event listeners with `on_input()` and `on_item_enter()` methods
+   - Add proper type hints
+
+   **Before (API v2)**:
+   ```python
+   from ulauncher.api.client.Extension import Extension
+   from ulauncher.api.client.EventListener import EventListener
+   from ulauncher.api.shared.event import KeywordQueryEvent, ItemEnterEvent
+
+   class MyExtension(Extension):
+       def __init__(self):
+           super(MyExtension, self).__init__()
+           self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
+           self.subscribe(ItemEnterEvent, ItemEnterEventListener())
+
+   class KeywordQueryEventListener(EventListener):
+       def on_event(self, event, extension):
+           # handle input
+           pass
+
+   class ItemEnterEventListener(EventListener):
+       def on_event(self, event, extension):
+           # handle item selection
+           pass
+   ```
+
+   **After (API v3)**:
+   ```python
+   from ulauncher.api import Extension, Result
+
+   class MyExtension(Extension):
+       def on_input(self, input_text: str, trigger_id: str):
+           # handle input
+           yield Result(name="Example", description="Example result")
+
+       def on_item_enter(self, data):
+           # handle item selection
+           pass
+   ```
+
+3. **Update imports**:
+   - Use the simplified import structure: `from ulauncher.api import Extension, Result`
+   - Action imports remain the same
+
+4. **Test thoroughly**:
+   - Install your updated extension locally
+   - Test all functionality with `ulauncher -v`
+   - Ensure all triggers and actions work correctly
+
+## Migrate from API v1 to v2
+
+API version 2 was introduced along with Ulauncher v5 after migrating from Python 2 to 3.
+
+### Required Actions
+
+1. Remove `manifest_version` from `manifest.json`. It's no longer needed
+2. In the manifest file rename `api_version` to `required_api_version`
+3. Set its value to `2`
+4. `required_api_version` is the supported version(s) of the Ulauncher extension API (not the Ulauncher app version)
+5. Migrate your extension to Python 3 manually or by using [2to3 tool](https://docs.python.org/2/library/2to3.html)
+6. Create a file called `versions.json` in the **root** directory of **master** branch using the following content as a template:
+
+```json
+[
+  { "required_api_version": "1", "commit": "<branch name with the pre-migration code>" },
+  { "required_api_version": "2", "commit": "<branch name with python3 code>" }
+]
+```
+
+For example, you may choose `python2` as a branch name where you keep the old code, which is going to be used by the old Ulauncher app, and `master` as a branch name where you keep the latest version. In this case the file contents should look like this:
+
+```json
+[
+  { "required_api_version": "1", "commit": "python2" },
+  { "required_api_version": "2", "commit": "master" }
+]
+```
+
+## Version Management
+
+Use the `versions.json` file to support multiple API versions if you want to maintain backward compatibility. This allows different versions of Ulauncher to use the appropriate version of your extension.
