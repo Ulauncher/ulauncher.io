@@ -1,0 +1,25 @@
+{
+  "name": "ulauncher.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulauncher/ulauncher.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ulauncher/ulauncher.io/issues"
+  },
+  "homepage": "https://github.com/ulauncher/ulauncher.io#readme",
+  "devDependencies": {
+    "rspress": "^1.45.5"
+  }
+}
