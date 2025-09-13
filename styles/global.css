@@ -2,6 +2,15 @@
   /* Otherwise some element casts a blueish shadow on the hero image when switching to dark theme */
   display: none !important;
 }
+@media (min-width: 768px) {
+  /* Otherwise hero text takes more space than needed and almost touches the animation */
+  h1 .clip_aacad {
+    font-size: 3.5rem;
+  }
+  p.rspress-home-hero-tagline {
+    font-size: 1.2rem;
+  }
+}
 
 /* Release Info Component Styles */
 .release-info {
