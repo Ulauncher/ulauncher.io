@@ -1,0 +1,67 @@
+import { Toc } from "@theme";
+
+# Development Downloads
+
+:::warning
+Development releases may contain bugs and unstable features. They are intended for testing and development purposes. For production use, please consider the [stable release](/download) instead.
+:::
+
+Choose the installation method for your Linux distribution to get the latest development version of Ulauncher.
+
+<Toc />
+
+[← Back to Stable Downloads](/download)
+
+## Ubuntu / Debian
+
+**Install via PPA (recommended for Ubuntu):**
+
+```bash
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:agornostal/ulauncher
+sudo apt update
+sudo apt install ulauncher
+```
+
+**For Debian users:**
+
+```bash
+# Add Ulauncher repository
+gpg --keyserver keyserver.ubuntu.com --recv 0xfaf1020699503176
+gpg --export 0xfaf1020699503176 | sudo tee /usr/share/keyrings/ulauncher-archive-keyring.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/ulauncher-archive-keyring.gpg] \
+          http://ppa.launchpad.net/agornostal/ulauncher/ubuntu jammy main" \
+          | sudo tee /etc/apt/sources.list.d/ulauncher-jammy.list
+sudo apt update
+sudo apt install ulauncher
+```
+
+**Alternatively**, download the development `.deb` file and install:
+
+```bash
+sudo apt install ./ulauncher_x.y.z_all.deb
+```
+
+## Arch Linux
+
+Available in AUR: [ulauncher-git](https://aur.archlinux.org/packages/ulauncher-git/)
+
+```bash
+yay -S ulauncher-git
+# or
+paru -S ulauncher-git
+# or using makepkg
+git clone https://aur.archlinux.org/ulauncher-git.git
+cd ulauncher-git
+makepkg -si
+```
+
+## Fedora
+
+:::note
+Development packages are not currently available for Fedora. Please use the [stable release](/download) or install from source.
+:::
+
+---
+
+[← Back to Stable Downloads](/download)

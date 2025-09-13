@@ -1,0 +1,67 @@
+import { Toc } from "@theme";
+
+# Download
+
+Follow the installation instructions below for your Linux distribution to install the stable version of Ulauncher.
+
+<Toc />
+
+Looking for development releases? [Check out the development downloads →](/download-dev)
+
+## Ubuntu / Debian
+
+**Install via PPA (recommended for Ubuntu):**
+
+```bash
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:agornostal/ulauncher
+sudo apt update
+sudo apt install ulauncher
+```
+
+**For Debian users:**
+
+```bash
+# Add Ulauncher repository
+gpg --keyserver keyserver.ubuntu.com --recv 0xfaf1020699503176
+gpg --export 0xfaf1020699503176 | sudo tee /usr/share/keyrings/ulauncher-archive-keyring.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/ulauncher-archive-keyring.gpg] \
+          http://ppa.launchpad.net/agornostal/ulauncher/ubuntu jammy main" \
+          | sudo tee /etc/apt/sources.list.d/ulauncher-jammy.list
+sudo apt update
+sudo apt install ulauncher
+```
+
+**Alternatively**, download the `.deb` file and install:
+
+```bash
+sudo apt install ./ulauncher_x.y.z_all.deb
+```
+
+Or right-click the `.deb` file and open with your software installer.
+
+## Arch Linux
+
+Available in AUR: [ulauncher](https://aur.archlinux.org/packages/ulauncher/)
+
+```bash
+yay -S ulauncher
+# or
+paru -S ulauncher
+# or using makepkg
+git clone https://aur.archlinux.org/ulauncher.git
+cd ulauncher
+makepkg -si
+```
+
+## Fedora
+
+Available for all current Fedora releases:
+
+```bash
+sudo dnf install ulauncher
+```
+
+---
+
+Need the latest features? [Try the development release →](/download-dev)

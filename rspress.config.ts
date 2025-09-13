@@ -9,7 +9,11 @@ export default defineConfig({
   logo: '/images/ulauncher-logo.png',
   globalStyles: path.join(__dirname, 'styles/global.css'),
   themeConfig: {
+    footer: {
+      message: '© 2015-2025 Ulauncher Team',
+    },
     nav: [
+      { text: 'Download', link: '/download' },
       { text: 'Extensions', link: 'https://ext.ulauncher.io' },
       { text: 'API Docs', link: '/api' },
       { text: 'Bugs & Discussions', link: 'https://github.com/Ulauncher/Ulauncher/issues' },
