@@ -2,6 +2,13 @@
   /* Otherwise some element casts a blueish shadow on the hero image when switching to dark theme */
   display: none !important;
 }
+h1.leading-tight {
+  padding-bottom: 0;
+}
+p.rspress-home-hero-tagline {
+  font-size: 1.2rem;
+  padding-top: 0 !important;
+}
 @media (min-width: 768px) {
   /* Otherwise hero text takes more space than needed and almost touches the animation */
   h1 .clip_aacad {
@@ -9,6 +16,7 @@
   }
   p.rspress-home-hero-tagline {
     font-size: 1.2rem;
+    padding-top: 0 !important;
   }
 }
 
