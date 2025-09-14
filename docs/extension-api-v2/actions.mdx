@@ -1,0 +1,113 @@
+---
+title: Actions
+description: Available actions for Ulauncher extension results
+---
+
+# Actions
+
+Actions define what happens when a user selects an item from your extension's results. Each action type serves a different purpose.
+
+## ExtensionCustomAction
+
+```python
+class ulauncher.api.shared.action.ExtensionCustomAction.ExtensionCustomAction(data, keep_app_open=False)
+```
+
+If initiated with `data`, the same data will be returned in [`ItemEnterEvent`](./events#itementerevent) object.
+
+**Parameters:**
+- **data** (*any*) – any type that can be serialized with `pickle.dumps()`
+- **keep_app_open** (*bool*) – pass `True` if you want to keep Ulauncher window open. `False` by default
+
+## ActionList
+
+```python
+class ulauncher.api.shared.action.ActionList.ActionList(iterable=(), /)
+```
+
+Used to run multiple actions at once.
+
+**Parameters:**
+- **actions** (*list*) – list of actions to run
+
+## CopyToClipboardAction
+
+```python
+class ulauncher.api.shared.action.CopyToClipboardAction.CopyToClipboardAction
+```
+
+Copies the specified text to the clipboard.
+
+## DoNothingAction
+
+```python
+class ulauncher.api.shared.action.DoNothingAction.DoNothingAction
+```
+
+Does nothing. Keeps Ulauncher window open.
+
+## HideWindowAction
+
+```python
+class ulauncher.api.shared.action.HideWindowAction.HideWindowAction
+```
+
+Hides the Ulauncher window.
+
+## LaunchAppAction
+
+```python
+class ulauncher.api.shared.action.LaunchAppAction.LaunchAppAction
+```
+
+Launches an application.
+
+## OpenAction
+
+```python
+class ulauncher.api.shared.action.OpenAction.OpenAction(path)
+```
+
+Runs platform specific command to open either file or directory.
+
+**Parameters:**
+- **path** (*str*) – file or directory path
+
+## OpenUrlAction
+
+```python
+class ulauncher.api.shared.action.OpenUrlAction.OpenUrlAction(url)
+```
+
+Opens URL in the default browser.
+
+**Parameters:**
+- **url** (*str*) – the URL to open
+
+## RenderResultListAction
+
+```python
+class ulauncher.api.shared.action.RenderResultListAction.RenderResultListAction
+```
+
+Renders a list of results in the Ulauncher interface.
+
+## RunScriptAction
+
+```python
+class ulauncher.api.shared.action.RunScriptAction.RunScriptAction(script, args=None)
+```
+
+Runs a user script.
+
+**Parameters:**
+- **script** (*str*) – script content
+- **args** (*list*) – arguments to pass to the script
+
+## SetUserQueryAction
+
+```python
+class ulauncher.api.shared.action.SetUserQueryAction.SetUserQueryAction
+```
+
+Sets the user query in the Ulauncher input field.

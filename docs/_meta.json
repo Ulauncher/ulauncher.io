@@ -15,8 +15,12 @@
         "link": "/video-tutorials"
       },
       {
-        "text": "Creating extensions",
-        "link": "/extensions"
+        "text": "Extension API v2 (current)",
+        "link": "/extension-api-v2"
+      },
+      {
+        "text": "Extension API v3 (next)",
+        "link": "/extension-api-v3"
       },
       {
         "text": "Creating color themes",

@@ -1,0 +1,110 @@
+---
+title: Events
+description: Events that your extensions can subscribe to and handle.
+---
+
+# Events
+
+Events are triggered by Ulauncher and allow your extension to respond to user interactions and system changes.
+
+## KeywordQueryEvent
+
+```python
+class ulauncher.api.shared.event.KeywordQueryEvent(query)
+```
+
+Is triggered when user enters query that starts with your keyword + Space.
+
+**Parameters:**
+- **query** (*Query*) – the query object containing user input
+
+### Methods
+
+#### get_argument()
+
+**Return type:** `str`
+
+**Returns:** `None` if arguments were not specified
+
+#### get_keyword()
+
+**Return type:** `str`
+
+Returns the keyword that triggered this event.
+
+#### get_query()
+
+**Return type:** `Query`
+
+Returns the complete query object.
+
+## ItemEnterEvent
+
+```python
+class ulauncher.api.shared.event.ItemEnterEvent(data)
+```
+
+Is triggered when selected item has action of type `ExtensionCustomAction`. Whatever data you've passed to action will be available in this class using method [`get_data()`](#get_data).
+
+**Parameters:**
+- **data** (*str*) – the data passed from the action
+
+### Methods
+
+#### get_data()
+
+**Returns:** whatever object you have passed to `ExtensionCustomAction`
+
+## SystemExitEvent
+
+```python
+class ulauncher.api.shared.event.SystemExitEvent
+```
+
+Is triggered when extension is about to be terminated.
+
+Your extension has 300ms to handle this event and shut down properly. After that it will be terminated with SIGKILL.
+
+## PreferencesUpdateEvent
+
+```python
+class ulauncher.api.shared.event.PreferencesUpdateEvent(id, old_value, new_value)
+```
+
+Is triggered when user updates preference through Preferences window.
+
+**Parameters:**
+- **id** (*str*) – the preference identifier
+- **old_value** (*str*) – the previous value
+- **new_value** (*str*) – the new value
+
+### Attributes
+
+#### id = None
+
+The preference identifier.
+
+#### new_value = None
+
+The new preference value.
+
+#### old_value = None
+
+The previous preference value.
+
+## PreferencesEvent
+
+```python
+class ulauncher.api.shared.event.PreferencesEvent(preferences)
+```
+
+Is triggered on extension start.
+
+**Parameters:**
+- **preferences** (*dict*) – dictionary containing all extension preferences
+
+### Attributes
+
+#### preferences = None
+
+Dictionary containing all extension preferences.
