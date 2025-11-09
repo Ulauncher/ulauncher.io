@@ -8,6 +8,7 @@ export default defineConfig({
 		mermaid(),
 		starlight({
 			title: 'Ulauncher',
+			favicon: '/favicon.ico',
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/Ulauncher/Ulauncher' },
 			],

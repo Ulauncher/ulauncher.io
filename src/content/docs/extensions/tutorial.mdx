@@ -128,14 +128,14 @@ Ulauncher only installs from git repositories, so you need to commit your change
 To update an extension you installed this way, you simply use the regular update functionality.
 For testing purposes we highly recommend you exit ulauncher and run `ulauncher -v` in a terminal for verbose output.
 
-![Extension demo](https://i.imgur.com/GlEfHjA.png)
+![Extension demo](../../../assets/extensions/extension-demo.png)
 
 When you type in "dm " (the keyword of the trigger that you defined earlier followed by a space) you'll get a list of items.
 This is all this extension will do for now.
 
 ## Basic API Concepts
 
-![Message flow](https://imgur.com/Wzb6KUz.png)
+![Message flow](../../../assets/extensions/message-flow.png)
 *Message flow*
 
 **1. Define extension class and the `on_input` listener**
@@ -239,7 +239,7 @@ class DemoExtension(Extension):
         )
 ```
 
-![Custom action result](https://i.imgur.com/3x7SXgi.png)
+![Custom action result](../../../assets/extensions/custom-action-result.png)
 *Now this will be rendered when you click on any item*
 
 ## Dependencies and requirements.txt file
