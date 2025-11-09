@@ -1,0 +1,184 @@
+---
+title: API Reference
+description: Complete reference for the Ulauncher Extension API
+---
+
+# API Reference
+
+:::caution[Work in Progress]
+You are looking at unfinished documentation for Extension API v3 which is still in development. For stable Extension API v2, please visit [Extension API v2](/extension-api-v2).
+:::
+
+Refer to this page when you need to look up a specific function or class in the API.
+
+## Extension Base Class
+
+Inherit from this class to create your own extension. It provides a set of methods and hooks that you can override to handle user input and other events.
+
+### `class Extension`
+
+**Import**: `from ulauncher.api import Extension`
+
+#### Methods
+
+**`on_input(self, input_text: str, trigger_id: str)`**
+
+Called when the user types after a keyword trigger. This is the main method for handling user input.
+
+- `input_text` (str): The text the user typed after the keyword
+- `trigger_id` (str): The ID of the trigger that was activated
+- **Returns**: List of `Result` objects or yields `Result` objects
+
+**`on_item_enter(self, data)`**
+
+Called when a user activates a result item with `ExtensionCustomAction`.
+
+- `data`: The data passed to `ExtensionCustomAction`
+- **Returns**: Optional list of `Result` objects or yields `Result` objects
+
+**`on_launch(self, trigger_id: str)`**
+
+Called when a launch trigger (trigger without keyword) is activated.
+
+- `trigger_id` (str): The ID of the trigger that was activated
+- **Returns**: List of `Result` objects or yields `Result` objects
+
+**`run(self)`**
+
+Starts the extension. Call this in your main block.
+
+```python
+if __name__ == '__main__':
+    MyExtension().run()
+```
+
+## Result Class
+
+Represents a single result item that will be displayed in Ulauncher.
+
+### `class Result`
+
+**Import**: `from ulauncher.api import Result`
+
+#### Constructor
+
+```python
+Result(
+    name: str,
+    description: str = "",
+    icon: str = None,
+    on_enter = False
+)
+```
+
+#### Parameters
+
+**`name` (str, required)**
+The main text displayed for the result item.
+
+**`description` (str, optional)**
+Secondary text displayed below the name.
+
+**`icon` (str, optional)**
+Path to an icon file or name of a themed icon. If not provided, uses the extension's default icon.
+
+**`on_enter` (optional)**
+Action to perform when the result is activated. Can be:
+- `False`: Close Ulauncher (default)
+- `True`: Keep Ulauncher open
+- `str`: Set the query text
+- `list`: Render new results
+- Action object (see [Actions](./actions) for details)
+
+## Preferences
+
+Access user preferences set in the Ulauncher preferences window.
+
+### `get_preference(self, key: str) -> str`
+
+Get a preference value by its key.
+
+```python
+class MyExtension(Extension):
+    def on_input(self, input_text: str, trigger_id: str):
+        api_key = self.get_preference('api_key')
+        # use the api_key...
+```
+
+## Manifest.json Structure
+
+The manifest file defines your extension's metadata and configuration.
+
+### Required Fields
+
+**`api_version` (str)**
+The API version your extension supports (currently "3").
+
+**`name` (str)**
+Human-readable name of your extension.
+
+**`authors` (str)**
+Extension author name(s).
+
+**`triggers` (object)**
+Defines how users can activate your extension.
+
+### Optional Fields
+
+**`icon` (str)**
+Path to extension icon or themed icon name.
+
+**`instructions` (str)**
+Installation instructions shown in preferences.
+
+**`preferences` (object)**
+User-configurable settings.
+
+**`input_debounce` (number)**
+Delay in seconds before sending input events (default: 0.05).
+
+### Example Manifest
+
+```json
+{
+  "api_version": "3",
+  "name": "My Extension",
+  "authors": "John Doe",
+  "icon": "system-search",
+  "instructions": "Install required dependencies: pip install requests",
+  "input_debounce": 0.1,
+  "triggers": {
+    "search": {
+      "name": "Search",
+      "description": "Search for items",
+      "keyword": "search",
+      "icon": "system-search"
+    }
+  },
+  "preferences": {
+    "api_key": {
+      "type": "input",
+      "name": "API Key",
+      "description": "Your API key",
+      "default_value": ""
+    }
+  }
+}
+```
+
+## Common Import Patterns
+
+```python
+# Basic extension setup
+from ulauncher.api import Extension, Result
+
+# Actions
+from ulauncher.api.shared.action.CopyToClipboardAction import CopyToClipboardAction
+from ulauncher.api.shared.action.OpenAction import OpenAction
+from ulauncher.api.shared.action.ExtensionCustomAction import ExtensionCustomAction
+from ulauncher.api.shared.action.ActionList import ActionList
+
+# Logging
+import logging
+logger = logging.getLogger(__name__)
+```

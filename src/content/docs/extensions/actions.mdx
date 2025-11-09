@@ -1,0 +1,87 @@
+---
+title: Actions
+description: Available actions for Ulauncher extension results
+---
+
+# Actions
+
+:::caution[Work in Progress]
+You are looking at unfinished documentation for Extension API v3 which is still in development. For stable Extension API v2, please visit [Extension API v2](/extension-api-v2).
+:::
+
+Actions define what happens when a user activates a result item (by pressing Enter or clicking). Here are the available action types:
+
+## ExtensionCustomAction
+
+Used to handle custom actions within your extension. When triggered, it calls the `on_item_enter` method of your extension with the provided data.
+
+```python
+from ulauncher.api.shared.action.ExtensionCustomAction import ExtensionCustomAction
+
+# Example usage
+data = {'action': 'custom_action', 'value': 'some_value'}
+action = ExtensionCustomAction(data, keep_app_open=True)
+```
+
+**Parameters:**
+- `data` - Any data to pass to your extension's `on_item_enter` method
+- `keep_app_open` (optional) - Whether to keep Ulauncher open after the action (default: False)
+
+## ActionList
+
+Allows you to define multiple actions to be executed in sequence.
+
+```python
+from ulauncher.api.shared.action.ActionList import ActionList
+from ulauncher.api.shared.action.CopyToClipboardAction import CopyToClipboardAction
+from ulauncher.api.shared.action.OpenAction import OpenAction
+
+# Example usage
+actions = ActionList([
+    CopyToClipboardAction('Copied text'),
+    OpenAction('https://example.com')
+])
+```
+
+## CopyToClipboardAction
+
+Copies the specified text to the clipboard.
+
+```python
+from ulauncher.api.shared.action.CopyToClipboardAction import CopyToClipboardAction
+
+# Example usage
+action = CopyToClipboardAction('Text to copy to clipboard')
+```
+
+**Parameters:**
+- `text` - The text to copy to the clipboard
+
+## OpenAction
+
+Opens a URL in the default browser or a file/directory in the default application.
+
+```python
+from ulauncher.api.shared.action.OpenAction import OpenAction
+
+# Open a URL
+action = OpenAction('https://example.com')
+
+# Open a file
+action = OpenAction('/path/to/file.txt')
+
+# Open a directory
+action = OpenAction('/path/to/directory')
+```
+
+**Parameters:**
+- `url_or_path` - The URL or file/directory path to open
+
+## Simple Actions
+
+You can also use simple values for basic actions:
+
+- `False` - Close Ulauncher (default behavior)
+- `True` - Keep Ulauncher open
+- `str` - Set the query text in Ulauncher's input field
+- `list` - Render a new list of results

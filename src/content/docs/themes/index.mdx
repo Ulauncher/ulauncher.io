@@ -1,0 +1,87 @@
+---
+title: Creating Color Themes
+description: How to create and install custom color themes for Ulauncher
+---
+
+# Color Themes
+
+:::note
+Theme support has not been tested and probably is broken in Ulauncher v6 (next version).
+:::
+
+Ulauncher comes with built-in color themes you can choose between. In addition to that you can install community contributed themes or create your own.
+
+## Installing Community Themes
+
+If you find a [community contributed theme](https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce) you like, this is how you install it:
+
+1. Ensure that you have the user theme directory:
+   ```bash
+   mkdir -p ~/.config/ulauncher/user-themes
+   ```
+
+2. Move to the user theme directory:
+   ```bash
+   cd ~/.config/ulauncher/user-themes
+   ```
+
+3. Clone the theme (replace with the actual user name and theme name):
+   ```bash
+   git clone git@github.com:<user_name>/<theme_name>.git
+   ```
+
+4. Open Ulauncher Preferences and select the theme
+
+## Creating Custom Color Themes
+
+1. Take a look at how the [built-in themes](https://github.com/Ulauncher/Ulauncher/tree/HEAD/data/themes) are written
+2. Ensure that you have the user theme directory:
+   ```bash
+   mkdir -p ~/.config/ulauncher/user-themes
+   ```
+3. Copy an existing theme to this directory and give it a unique name
+4. Open Ulauncher Preferences and select your theme
+5. Edit the colors in the CSS files
+6. Press `Ctrl+Space` (or your hotkey) to check the result
+7. Repeat steps 5-6 until you get your desired result
+
+## New Simplified CSS Theme Format
+
+Ulauncher themes were originally implemented as a directory with a manifest JSON file with theme metadata to complement the CSS file, but as of Ulauncher version 6.0.0, we support and recommend just using plain CSS files.
+
+We still support the legacy theme format. You install either kind by putting the themes in your user theme directory.
+
+## Migrating Old Themes
+
+If you have an existing theme in the old format, here's how to migrate it:
+
+1. If your theme `manifest.json` defines a `css_file_gtk_3.20` property, this is the theme CSS file. Otherwise `css_file` is the theme CSS file.
+
+2. Start by flattening imports. For example if the theme contains `@import url("theme.css");`, then replace this by the actual content of "theme.css".
+
+3. Copy the color defined in `manifest.json` `matched_text_hl_colors.when_not_selected` to your CSS file as `.item-highlight`.
+
+   Example:
+   ```css
+   .item-highlight {
+     color: #ff7b57;
+   }
+   ```
+
+4. If your color for `matched_text_hl_colors.when_selected` differs from `when_not_selected`, then also add that to your CSS file as:
+   ```css
+   .selected.item-box .item-highlight {
+     color: #ffcbbd;
+   }
+   ```
+
+5. If `manifest.json` defines `extend_theme` and it's not null, then locate that theme and copy the CSS selectors and properties from it to the top of your theme. Then go through and filter out the duplicated selectors, that your CSS file already had before (this is likely most of them).
+
+6. Copy/move the CSS file directly to the user theme directory. If you want to keep it compatible with your old theme name, it should have the `name` property from `manifest.json` as its file name and `.css` as the extension.
+
+## GTK CSS Documentation
+
+For advanced theme customization, refer to the GTK CSS documentation:
+
+- [GTK3 CSS Overview](https://docs.gtk.org/gtk3/css-overview.html)
+- [GTK3 CSS Properties](https://docs.gtk.org/gtk3/css-properties.html)

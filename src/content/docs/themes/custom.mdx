@@ -1,0 +1,71 @@
+---
+title: Creating Custom Themes
+description: Detailed guide for creating custom Ulauncher themes
+---
+
+# Creating Custom Themes
+
+:::note
+Theme support has not been tested and probably is broken in Ulauncher v6 (next version).
+:::
+
+This page provides additional details on creating custom color themes for Ulauncher.
+
+## Theme Structure
+
+As of Ulauncher 6.0.0, themes can be simple CSS files placed in the user theme directory (`~/.config/ulauncher/user-themes`).
+
+### Basic Theme File
+
+A basic theme is a CSS file that defines the colors and styles for Ulauncher's interface. Here's a minimal example:
+
+```css
+.input {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.result-box {
+  background-color: #1a1a1a;
+}
+
+.selected.item-box {
+  background-color: #404040;
+}
+
+.item-name {
+  color: #ffffff;
+}
+
+.item-text {
+  color: #cccccc;
+}
+
+.item-highlight {
+  color: #ff7b57;
+}
+```
+
+## Theme Development Workflow
+
+1. Create a new CSS file in `~/.config/ulauncher/user-themes/`
+2. Open Ulauncher Preferences and select your theme
+3. Edit the CSS file with your preferred colors
+4. Press `Ctrl+Space` (or your hotkey) to see the changes
+5. Iterate until you're satisfied with the result
+
+## Key CSS Classes
+
+- `.input` - The search input field
+- `.result-box` - Container for all results
+- `.item-box` - Individual result item
+- `.selected.item-box` - Selected result item
+- `.item-name` - Result title text
+- `.item-text` - Result description text
+- `.item-highlight` - Highlighted/matched text
+
+## Resources
+
+- [Built-in themes](https://github.com/Ulauncher/Ulauncher/tree/HEAD/data/themes) - Reference implementations
+- [Community themes](https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce) - Themes created by the community
+- [GTK3 CSS Documentation](https://docs.gtk.org/gtk3/css-overview.html) - Complete CSS reference for GTK applications

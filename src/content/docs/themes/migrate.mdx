@@ -1,0 +1,122 @@
+---
+title: Migrating Themes
+description: Guide for migrating old theme format to the new simplified format
+---
+
+# Migrating Themes
+
+:::note
+Theme support has not been tested and probably is broken in Ulauncher v6 (next version).
+:::
+
+If you have an existing theme in the old manifest-based format, this guide will help you migrate it to the new simplified CSS-only format introduced in Ulauncher 6.0.0.
+
+## Migration Steps
+
+### 1. Identify the CSS File
+
+In your theme directory, locate the main CSS file:
+- If `manifest.json` defines `css_file_gtk_3.20`, that's your CSS file
+- Otherwise, the `css_file` property points to your CSS file
+
+### 2. Flatten CSS Imports
+
+If your CSS file contains `@import` statements like:
+```css
+@import url("theme.css");
+```
+
+Replace the import statement with the actual content of the imported file.
+
+### 3. Add Highlight Colors
+
+Copy color values from `manifest.json` to your CSS file:
+
+**From manifest.json:**
+```json
+{
+  "matched_text_hl_colors": {
+    "when_not_selected": "#ff7b57",
+    "when_selected": "#ffcbbd"
+  }
+}
+```
+
+**To CSS file:**
+```css
+.item-highlight {
+  color: #ff7b57;
+}
+
+.selected.item-box .item-highlight {
+  color: #ffcbbd;
+}
+```
+
+If both colors are the same, you only need the first rule.
+
+### 4. Handle Extended Themes
+
+If your `manifest.json` has `extend_theme` set to another theme:
+
+1. Locate the parent theme
+2. Copy all CSS from the parent theme to the top of your CSS file
+3. Remove any duplicate selectors (keep your custom values)
+
+### 5. Save as Plain CSS
+
+1. Save the final CSS file with your theme name as the filename
+2. Use `.css` extension
+3. Place it in `~/.config/ulauncher/user-themes/`
+4. Remove the old manifest-based theme directory if desired
+
+## Example: Before and After
+
+### Before (Old Format)
+
+**Directory structure:**
+```
+~/.config/ulauncher/user-themes/my-theme/
+├── manifest.json
+└── theme.css
+```
+
+**manifest.json:**
+```json
+{
+  "name": "My Theme",
+  "css_file": "theme.css",
+  "matched_text_hl_colors": {
+    "when_not_selected": "#ff7b57"
+  }
+}
+```
+
+**theme.css:**
+```css
+.input {
+  background-color: #2d2d2d;
+}
+```
+
+### After (New Format)
+
+**File:**
+```
+~/.config/ulauncher/user-themes/My Theme.css
+```
+
+**My Theme.css:**
+```css
+.input {
+  background-color: #2d2d2d;
+}
+
+.item-highlight {
+  color: #ff7b57;
+}
+```
+
+## Backward Compatibility
+
+Both the old manifest-based format and the new CSS-only format are supported in Ulauncher 6.0.0+. You can choose to keep the old format if it works for your needs, but the new format is recommended for its simplicity.
