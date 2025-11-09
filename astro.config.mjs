@@ -6,9 +6,9 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Ulauncher',
-			social: {
-				github: 'https://github.com/Ulauncher/Ulauncher',
-			},
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/Ulauncher/Ulauncher' },
+			],
 			sidebar: [
 				{
 					label: 'Color Themes',
