@@ -45,5 +45,21 @@ It reduces amount of boilerplate code in extensions.
 
 The following diagram shows how control over responses to user input is passed between Ulauncher and extensions.
 
-![Message flow diagram](https://imgur.com/FrgFj2C.png)
-*Message flow ([diagram source](https://app.colibridiagrams.net/sequence/#diagram=A4QwTgLglgxloDsIAICqBnApmAUKSs8ISaANiAK4IwAW2e40ciKAogB4SYLpQD2CHDgzYAtAD5U5KrWwAuZBACewTOmRQEyAI4VsSnAj5dkfAG7YylanTALMnMCBgR1Aa0xKA7nzAATAB0EYj9kWRg3dSgAM2RiJWQHLh5+BCCYYmQaENJMDQhhaRsxcQ5k3gEFLAQ-dQBJBGAKCAAVMCgAcw7sVgskQ2M880sy7gqEBQEAfU0mlABbTAgaPlCodQh2ruxMPwGTYbBkUZTKrJy1RL6UACME4DBMfE0OoJBkUnWUPljH9ApSCgoFx5ugcCdxhIpNZZHZkI8IBQwDw4h8vqZYkkxql4WoAa4NFpprNmoUYbYoVg4Y8apZ3p90N9YsDMKCgtVbgllnksadBCIwFCirCqphci51JkWfMyTIKaVONizptOt0wPUQawkD1rvshhYjhDUgpsjVchs6FduAUjQIheT5MgABR8YDQAQgUikJQASlxiORkuQCEwXjRjIxuP+gPQQA))*
+```mermaid
+sequenceDiagram
+    participant User
+    participant Ulauncher
+    participant Extension
+
+    User->>Ulauncher: types in query
+    note over Ulauncher: extracts keyword<br/>and checks if any extension<br/>can handle it
+    Ulauncher->>Extension: sends InputTriggerEvent
+    note over Extension: on_input method is triggered
+    note over Extension: handles event by preparing<br/>a list of result items
+    Extension->>Ulauncher: returns a list of extension results in on_input
+    Ulauncher->>User: render a list of items<br/>sent by the extension
+    User->>Ulauncher: selects an item
+    Ulauncher->>Extension: triggers ItemEnterEvent
+    note over Extension: handles the event
+    Extension->>Ulauncher: (optionally) returns a new list of results
+```
