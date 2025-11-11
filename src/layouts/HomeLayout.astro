@@ -1,0 +1,121 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Ulauncher — Application launcher for Linux 🐧',
+	description = 'Fast application launcher for Linux with fuzzy search, custom themes, extensions, and distro-specific downloads.',
+} = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#161616" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900&display=swap" rel="stylesheet" />
+		<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet" />
+		<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 64x64" />
+		<link rel="icon" href="/assets/images/ulauncher-logo.png" sizes="192x192" />
+		<link rel="stylesheet" href="/assets/css/skel-noscript.css" />
+		<link rel="stylesheet" href="/assets/css/style.css" />
+		<link rel="stylesheet" href="/assets/css/style-desktop.css" />
+	</head>
+	<body class="homepage">
+		<div id="header">
+			<div id="nav-wrapper">
+				<nav id="nav">
+					<ul>
+						<li><a href="/#Download">Download</a></li>
+						<li><a href="https://docs.ulauncher.io">Docs</a></li>
+						<li><a href="https://ext.ulauncher.io">Extensions</a></li>
+						<li><a href="https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce">Color Themes</a></li>
+						<li><a href="https://github.com/Ulauncher/Ulauncher/issues">Issue Tracker</a></li>
+						<li><a class="fab fa-github" href="https://github.com/Ulauncher/Ulauncher/"></a></li>
+						<li><a class="fab fa-twitter" href="https://twitter.com/UlauncherApp"></a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="container">
+				<div id="logo">
+					<h1>
+						<a href="/#">
+							<span class="ulauncher-logo">
+								<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ulauncher logo">
+									<g>
+										<g>
+											<path fill="#599CCD" d="M32.453,24.713V6.501l10.854-4.634v23.595c0,2.846-10.854,3.176-10.854-0.754V24.713z" />
+										</g>
+										<g>
+											<path
+												fill="#7EC183"
+												d="M23.319,45.268c-3.396,0-6.335-0.479-8.806-1.434c-2.471-0.955-3.17-2.752-4.711-4.397
+													c-0.827-0.878,6.884,0.514,12.022-0.616c4.932-1.027,7.311-4.429,8.132-5.239c1.665-1.64,2.491-4.424,2.491-8.354V8.408
+													c4.476,1.746,10.126,7.706,10.855,14.179v3.391c0,2.845-0.395,5.456-1.186,7.829s-2.005,4.413-3.633,6.108
+													c-1.635,1.701-3.704,3.016-6.222,3.945c-2.517,0.936-5.496,1.396-8.949,1.396L23.319,45.268z"
+											/>
+										</g>
+										<g>
+											<path
+												fill="#4675AB"
+												d="M29.529,34.608c-1.026,1.952-5.753,7.81-14.795,8.733l-1.305,0.034c-1.988-0.908-3.668-2.079-5.03-3.522
+													c-1.608-1.7-2.795-3.725-3.56-6.078c-0.771-2.353-1.156-4.953-1.156-7.793v-6.612l10.855-4.824v10.686
+													c0,1.968,0.221,3.643,0.668,5.021c0.441,1.381,1.053,2.5,1.829,3.368c0.776,0.87,1.711,1.49,2.81,1.86
+													c1.1,0.375,2.307,0.561,3.617,0.561c2.667,0,4.834-0.823,6.5-2.461l-0.428,1.027H29.529z"
+											/>
+										</g>
+									</g>
+								</svg>
+							</span>
+							<i class="ulauncher-title">Ulauncher</i>
+						</a>
+					</h1>
+					<span class="tag">Application launcher for Linux</span>
+				</div>
+			</div>
+		</div>
+
+		<slot />
+
+		<div id="footer">
+			<div class="container">
+				<section>
+					<header>
+						<h2>Feedback</h2>
+						<span class="byline">Let us know what you think about Ulauncher</span>
+					</header>
+					<ul class="contact">
+						<li><a href="https://twitter.com/UlauncherApp" class="fab fa-twitter"><span>Twitter</span></a></li>
+						<li><a href="https://github.com/Ulauncher/Ulauncher/" class="fab fa-github"><span>GitHub</span></a></li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<div id="copyright">
+			<div class="container">
+				Site Design: <a href="http://templated.co">TEMPLATED</a>
+				&nbsp;|&nbsp;
+				Jekyll Template: <a href="http://cloudcannon.com">Cloud Cannon</a>
+			</div>
+		</div>
+
+		<script
+			is:inline
+			src="https://code.jquery.com/jquery-2.2.4.min.js"
+			integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			crossorigin="anonymous"
+		></script>
+		<script is:inline src="/assets/js/skel.min.js"></script>
+		<script is:inline src="/assets/js/skel-panels.min.js"></script>
+		<script is:inline src="/assets/js/init.js"></script>
+		<script is:inline src="/assets/js/releases.js"></script>
+	</body>
+</html>

@@ -1,0 +1,247 @@
+---
+import HomeLayout from '../layouts/HomeLayout.astro';
+
+const pageTitle = 'Ulauncher — Application launcher for Linux 🐧';
+const pageDescription = 'Download Ulauncher for Linux, discover extensions and videos, and support the project.';
+---
+
+<HomeLayout title={pageTitle} description={pageDescription}>
+	<div id="featured">
+		<div class="container">
+			<img class="demo" src="/assets/images/demo.gif" alt="Demo of Ulauncher in action" />
+			<div class="row">
+				<section class="3u">
+					<span class="pennant"><span class="fas fa-search" aria-hidden="true"></span></span>
+					<h3>Fuzzy search</h3>
+					<p>
+						Type an application name without worrying about spelling. Ulauncher figures out what you meant, remembers previous picks,
+						and auto-selects the best option next time.
+					</p>
+				</section>
+				<section class="3u">
+					<span class="pennant"><span class="fas fa-paint-brush" aria-hidden="true"></span></span>
+					<h3>Custom color themes</h3>
+					<p>
+						Ulauncher ships with four built-in themes and supports
+						<a href="https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce">custom color themes</a>.
+						Read the <a href="http://docs.ulauncher.io/en/latest/themes/themes.html">theme docs</a> to build your own.
+					</p>
+				</section>
+				<section class="3u">
+					<span class="pennant"><span class="fas fa-keyboard" aria-hidden="true"></span></span>
+					<h3>Shortcuts &amp; extensions</h3>
+					<p>
+						Speed up your workflow with personalized shortcuts and <a href="https://ext.ulauncher.io">extensions</a>.
+						Create quick access to scripts, searches, or reuse community-built add-ons.
+					</p>
+				</section>
+				<section class="3u">
+					<span class="pennant"><span class="fas fa-folder" aria-hidden="true"></span></span>
+					<h3>Fast directory browser</h3>
+					<p>
+						Browse files and directories with ease. Type <code>~</code> or <code>/</code> to start, then press <i>Alt+Enter</i> for advanced options.
+					</p>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<div id="main">
+		<div id="content" class="container">
+			<section id="social">
+				<header class="signup__header">Subscribe to Announcements and New Releases</header>
+
+				<form action="//ulauncher.us15.list-manage.com/subscribe/post?u=baa6d3572b48c6947a521d707&amp;id=4c8c7a5ea0" method="post" target="_blank">
+					<div class="row signup">
+						<div class="6u">
+							<input placeholder="Enter your email address..." type="email" required name="EMAIL" class="signup__email" />
+						</div>
+						<div class="6u">
+							<input type="submit" value="Subscribe" name="subscribe" class="signup__button" />
+						</div>
+						<div id="mce-responses" class="clear">
+							<div class="response" id="mce-error-response" style="display:none"></div>
+							<div class="response" id="mce-success-response" style="display:none"></div>
+						</div>
+						<div style="position: absolute; left: -5000px;" aria-hidden="true">
+							<input type="text" name="b_baa6d3572b48c6947a521d707_4c8c7a5ea0" tabindex="-1" value="" />
+						</div>
+					</div>
+				</form>
+
+				<ul class="social-buttons">
+					<li>
+						<iframe
+							class="github-btn"
+							src="https://ghbtns.com/github-btn.html?user=Ulauncher&amp;repo=Ulauncher&amp;type=watch&amp;count=true"
+							title="GitHub stars"
+							allowtransparency="true"
+							style="border: 0;"
+							width="100"
+							height="20"
+						></iframe>
+					</li>
+					<li class="follow-btn">
+						<iframe
+							id="twitter-widget-0"
+							allowtransparency="true"
+							class="twitter-follow-button twitter-follow-button-rendered"
+							title="Follow Ulauncher on Twitter"
+							src="//platform.twitter.com/widgets/follow_button.a0ec3119d8db2bc5422f2144c89ad7a9.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=UlauncherApp&amp;show_count=true&amp;show_screen_name=true&amp;size=m"
+							style="position: static; visibility: visible; width: 235px; height: 20px; border: 0;"
+							data-screen-name="ulauncherapp"
+						></iframe>
+					</li>
+					<li class="tweet-btn hidden-phone">
+						<iframe
+							id="twitter-widget-1"
+							allowtransparency="true"
+							class="twitter-share-button twitter-share-button-rendered twitter-tweet-button"
+							title="Tweet about Ulauncher"
+							src="//platform.twitter.com/widgets/tweet_button.a0ec3119d8db2bc5422f2144c89ad7a9.en.html#dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;original_referer=https%3A%2F%2Fulauncher.io%2F&amp;size=m&amp;text=Application%20launcher%20for%20Linux&amp;type=share&amp;url=https%3A%2F%2Fulauncher.io&amp;via=ulauncherapp"
+							style="position: static; visibility: visible; width: 60px; height: 20px; border: 0;"
+							data-url="https://ulauncher.io"
+						></iframe>
+					</li>
+				</ul>
+			</section>
+
+			<section id="Download">
+				<header>
+					<h2>Download</h2>
+				</header>
+
+				<div class="text" id="release-links">
+					<ul class="channel-options">
+						<li>
+							<span class="channel-option" id="stable-release">
+								<i class="option-check far fa-dot-circle"></i> Stable release:
+							</span>
+							<span class="option-info"><i>loading...</i></span>
+						</li>
+						<li>
+							<span class="channel-option" id="dev-release">
+								<i class="option-check far fa-circle"></i> Dev release:
+							</span>
+							<span class="option-info"><i>loading...</i></span>
+						</li>
+					</ul>
+
+					<ul class="distro-options">
+						<li class="distro-icon distro-ubuntu">
+							<p>
+								<b class="distro-name">Ubuntu (Debian)</b> <span id="release-deb"><i>loading link...</i></span>
+							</p>
+
+							Install via PPA (Ubuntu):<br />
+							<p id="ubuntu-ppa"></p>
+
+							<details style="margin-bottom: 15px;">
+								<summary><em>Note that the above instructions are specifically for Ubuntu. For Debian instructions, click here to expand.</em></summary>
+								<div id="debian-ppa"></div>
+							</details>
+
+							Alternatively, you can download the <code>.deb</code> file and run:<br />
+							<code>sudo apt install ./ulauncher_x.y.z_all.deb</code> or right click and choose to open in your graphical installer (normally named "Software").<br />
+						</li>
+						<li class="distro-icon distro-archlinux">
+							<p>
+								<b class="distro-name">Arch Linux</b> Available in AUR:
+								<a class="event-aur" id="release-aur" href="https://aur.archlinux.org/packages/ulauncher/">https://aur.archlinux.org/packages/ulauncher/</a>
+							</p>
+
+							<code class="event-aur" id="aur-shell"></code>
+						</li>
+						<li class="distro-icon distro-fedora">
+							<p>
+								<b class="distro-name">Fedora</b> Available for all current Fedora Linux Releases: <br />
+								<a class="event-fedora" id="release-fedora" href="#">#</a>
+							</p>
+
+							<div style="display: none" id="fedora-dev-repo">
+								<p>We don't currently support any dev repository for Fedora</p>
+							</div>
+							<code class="event-fedora">sudo dnf install ulauncher</code>
+						</li>
+						<li class="distro-icon distro-opensuse">
+							<p>
+								<b class="distro-name">OpenSUSE</b> <span id="release-suse"><i>loading link...</i></span>
+							</p>
+
+							<code>sudo zypper in packagename.rpm</code> or double click
+						</li>
+						<li class="distro-icon distro-centos">
+							<p>
+								<b class="distro-name">CentOS 7</b> <span id="release-centos"><i>loading link...</i></span>
+							</p>
+
+							<code>sudo yum install epel-release && sudo yum install packagename.rpm</code>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section id="Videos">
+				<header>
+					<h2>Video Tutorials</h2>
+				</header>
+
+				<div class="container">
+					<p>
+						<iframe
+							width="560"
+							height="315"
+							src="https://www.youtube.com/embed/dvMsYCGzWaM"
+							title="Ulauncher overview video"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						></iframe>
+					</p>
+
+					<p>Other tutorials and reviews:</p>
+					<ul>
+						<li>
+							<i class="fab fa-youtube" style="color: #CC001D; padding-right: 3px;" aria-hidden="true"></i>
+							<a href="https://www.youtube.com/watch?v=oO9ytyS5laQ">RICE Linux with Ulauncher - Extensions and Custom Theming</a>
+						</li>
+						<li>
+							<i class="fab fa-youtube" style="color: #CC001D; padding-right: 3px;" aria-hidden="true"></i>
+							<a href="https://www.youtube.com/watch?v=EufQM7Tyito">Ulauncher More Than App Launcher</a>
+						</li>
+						<li>
+							<i class="fab fa-youtube" style="color: #CC001D; padding-right: 3px;" aria-hidden="true"></i>
+							<a href="https://www.youtube.com/watch?v=CnNCqQuF4AQ">Ulauncher: Application Launcher With Style</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section id="Support">
+				<header>
+					<h3>Support the Project</h3>
+				</header>
+				<div class="row">
+					<div class="code-contribution 12u">
+						<a class="code-contrib-banner" href="https://github.com/Ulauncher/Ulauncher/wiki/Code-Contribution">
+							<span class="code-symbol">&lt;/&gt;</span>
+							<span class="banner-text">Code Contribution</span>
+						</a>
+						<p>
+							Check out
+							<a href="https://github.com/Ulauncher/Ulauncher/wiki/Code-Contribution">issues</a>
+							where we might need help from developers and Linux experts.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="slant-co">
+				<header><h3>Not convinced Ulauncher is the best launcher for you?</h3></header>
+				<p>
+					See comments and review alternatives at <a href="https://www.slant.co/topics/3945/~linux-app-launchers">slant.co</a><br />
+					If you like Ulauncher, please vote for it <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+				</p>
+			</section>
+		</div>
+	</div>
+</HomeLayout>
