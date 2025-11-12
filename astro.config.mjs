@@ -9,6 +9,7 @@ export default defineConfig({
 		starlight({
 			title: 'Ulauncher',
 			favicon: '/favicon.ico',
+			customCss: ['/src/styles/starlight-theme.css'],
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/Ulauncher/Ulauncher' },
 			],

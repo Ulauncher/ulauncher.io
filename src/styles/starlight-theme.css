@@ -1,0 +1,14 @@
+/* Align Starlight accent tokens with the branded blue */
+:root,
+::backdrop {
+	--sl-color-accent-low: #0f3a66;
+	--sl-color-accent: #155799;
+	--sl-color-accent-high: #4f8fc7;
+}
+
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+	--sl-color-accent-high: #0f3a66;
+	--sl-color-accent: #155799;
+	--sl-color-accent-low: #d8e8f7;
+}
