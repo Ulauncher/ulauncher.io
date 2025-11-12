@@ -3,6 +3,9 @@
 ## Project Structure & Module Organization
 Source lives in `src/`. Author docs in `src/content/docs` (one Markdown/MDX file per route with frontmatter), shared Astro pages in `src/pages`, and reusable images or diagrams in `src/assets`. Static files such as favicons or robots.txt belong in `public/`. Build output is emitted to `dist/`. Key configs stay at the root: `astro.config.mjs` for integration wiring, `tsconfig.json` for TypeScript paths, and `package.json` for scripts and dependencies.
 
+## Homepage Implementation
+The landing page (`src/pages/index.astro`) is a thin wrapper around `src/layouts/HomeLayout.astro`, which ships a legecy HTML/CSS/JS page rather than Astro’s component primitives. `HomeLayout` outputs the full document structure, imports legacy styles from `public/assets/css/` and pulls in jQuery 2.2.4 plus Skel scripts, `init.js`, and a custom `public/assets/js/releases.js`. That script hits the GitHub Releases API, caches responses in `localStorage`, and swaps download links, channel toggles, and distro instructions on the page. Any visual or behavioral tweaks to the homepage typically require editing `index.astro` for content blocks, `HomeLayout.astro` for layout and includes, and the assets under `public/assets/` for styling or client-side behavior.
+
 ## Build, Test, and Development Commands
 - `npm install`: bootstrap dependencies once per environment.
 - `npm run dev`: launch Astro’s dev server on `http://localhost:4321` with hot reload.

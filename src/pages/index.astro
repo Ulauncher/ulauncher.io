@@ -71,93 +71,6 @@ const pageDescription =
 
   <div id="main">
     <div id="content" class="container">
-      <section id="social">
-        <header class="signup__header">
-          Subscribe to Announcements and New Releases
-        </header>
-
-        <form
-          action="//ulauncher.us15.list-manage.com/subscribe/post?u=baa6d3572b48c6947a521d707&id=4c8c7a5ea0"
-          method="post"
-          target="_blank"
-        >
-          <div class="row signup">
-            <div class="6u">
-              <input
-                placeholder="Enter your email address..."
-                type="email"
-                required
-                name="EMAIL"
-                class="signup__email"
-              />
-            </div>
-            <div class="6u">
-              <input
-                type="submit"
-                value="Subscribe"
-                name="subscribe"
-                class="signup__button"
-              />
-            </div>
-            <div id="mce-responses" class="clear">
-              <div
-                class="response"
-                id="mce-error-response"
-                style="display:none"
-              >
-              </div>
-              <div
-                class="response"
-                id="mce-success-response"
-                style="display:none"
-              >
-              </div>
-            </div>
-            <div style="position: absolute; left: -5000px;" aria-hidden="true">
-              <input
-                type="text"
-                name="b_baa6d3572b48c6947a521d707_4c8c7a5ea0"
-                tabindex="-1"
-                value=""
-              />
-            </div>
-          </div>
-        </form>
-
-        <ul class="social-buttons">
-          <li>
-            <iframe
-              class="github-btn"
-              src="https://ghbtns.com/github-btn.html?user=Ulauncher&repo=Ulauncher&type=watch&count=true"
-              title="GitHub stars"
-              allowtransparency="true"
-              style="border: 0;"
-              width="100"
-              height="20"></iframe>
-          </li>
-          <li class="follow-btn">
-            <iframe
-              id="twitter-widget-0"
-              allowtransparency="true"
-              class="twitter-follow-button twitter-follow-button-rendered"
-              title="Follow Ulauncher on Twitter"
-              src="//platform.twitter.com/widgets/follow_button.a0ec3119d8db2bc5422f2144c89ad7a9.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=UlauncherApp&show_count=true&show_screen_name=true&size=m"
-              style="position: static; visibility: visible; width: 235px; height: 20px; border: 0;"
-              data-screen-name="ulauncherapp"></iframe>
-          </li>
-          <li class="tweet-btn hidden-phone">
-            <iframe
-              id="twitter-widget-1"
-              allowtransparency="true"
-              class="twitter-share-button twitter-share-button-rendered twitter-tweet-button"
-              title="Tweet about Ulauncher"
-              src="//platform.twitter.com/widgets/tweet_button.a0ec3119d8db2bc5422f2144c89ad7a9.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=https%3A%2F%2Fulauncher.io%2F&size=m&text=Application%20launcher%20for%20Linux&type=share&url=https%3A%2F%2Fulauncher.io&via=ulauncherapp"
-              style="position: static; visibility: visible; width: 60px; height: 20px; border: 0;"
-              data-url="https://ulauncher.io"></iframe>
-          </li>
-        </ul>
-      </section>
-
       <section id="Download">
         <header>
           <h2>Download</h2>
@@ -259,18 +172,16 @@ const pageDescription =
         </header>
 
         <div class="container">
-          <p>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/dvMsYCGzWaM"
-              title="Ulauncher overview video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </p>
-
-          <p>Other tutorials and reviews:</p>
           <ul>
+            <li>
+              <i
+                class="fab fa-youtube"
+                style="color: #CC001D; padding-right: 3px;"
+                aria-hidden="true"></i>
+              <a href="https://www.youtube.com/watch?v=dvMsYCGzWaM"
+                >Ulauncher overview video</a
+              >
+            </li>
             <li>
               <i
                 class="fab fa-youtube"
@@ -304,26 +215,50 @@ const pageDescription =
 
       <section id="Support">
         <header>
-          <h3>Support the Project</h3>
+          <h2>Support Ulauncher ❤</h2>
         </header>
-        <div class="row">
-          <div class="code-contribution 12u">
-            <a
-              class="code-contrib-banner"
-              href="https://github.com/Ulauncher/Ulauncher/wiki/Code-Contribution"
-            >
-              <span class="code-symbol">&lt;/&gt;</span>
-              <span class="banner-text">Code Contribution</span>
-            </a>
-            <p>
-              Check out
+
+        <div class="container">
+          <ul>
+            <li>
+              <img
+                src="/assets/images/star-logo.svg"
+                alt=""
+                style="width: 16px; height: 16px; padding-right: 3px; vertical-align: middle;"
+                aria-hidden="true"
+              />
+              <a
+                href="https://github.com/Ulauncher/Ulauncher"
+                target="_blank"
+                rel="noopener noreferrer">Give it a star</a
+              >
+            </li>
+            <li>
+              <img
+                src="/assets/images/patreon-logo.svg"
+                alt=""
+                style="width: 16px; height: 16px; padding-right: 3px; vertical-align: middle;"
+                aria-hidden="true"
+              />
+              <a
+                href="https://www.patreon.com/c/ogornostal"
+                target="_blank"
+                rel="noopener noreferrer">Donate on Patreon</a
+              >
+            </li>
+            <li>
+              <img
+                src="/assets/images/github-logo.svg"
+                alt=""
+                style="width: 16px; height: 16px; padding-right: 3px; vertical-align: middle;"
+                aria-hidden="true"
+              />
               <a
                 href="https://github.com/Ulauncher/Ulauncher/wiki/Code-Contribution"
-                >issues</a
+                >Contribute code</a
               >
-              where we might need help from developers and Linux experts.
-            </p>
-          </div>
+            </li>
+          </ul>
         </div>
       </section>
 
