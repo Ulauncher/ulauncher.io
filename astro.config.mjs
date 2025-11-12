@@ -15,11 +15,11 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Extension Development',
-					autogenerate: { directory: 'extensions' },
+					autogenerate: { directory: 'docs/extensions' },
 				},
 				{
 					label: 'Color Themes',
-					autogenerate: { directory: 'themes' },
+					autogenerate: { directory: 'docs/themes' },
 				}
 			],
 		}),
